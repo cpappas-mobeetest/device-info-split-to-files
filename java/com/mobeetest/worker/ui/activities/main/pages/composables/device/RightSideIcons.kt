@@ -4,6 +4,7 @@ import com.mobeetest.worker.ui.theme.*
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -23,19 +24,17 @@ fun RightSideIcons(
         verticalAlignment = Alignment.CenterVertically
     ) {
         // Update/Refresh icon with animated GIF support
-        PlayGifAtLeastWhileInProgress(
-            inProgress = (updateState == "InProgress"),
-            resId = R.drawable.update,
-            gifIcon = R.drawable.update_gif,
-            contentDescription = "Refresh device info",
-            onClick = onRefreshClick
-        )
-
-        // Share icon
         ActionIconSlot(
-            iconRes = R.drawable.share,
-            contentDescription = "Share $sectionId info",
-            onClick = { onShareClick(sectionId) }
-        )
+            touchSize = deviceInfoIconSize28,
+            onClick = onRefreshClick
+        ) {
+            PlayGifAtLeastWhileInProgress(
+                resId = R.drawable.update_gif,
+                minPlays = 1,
+                inProgress = (updateState == "InProgress"),
+                contentDescription = "Refresh device info",
+                onFinished = {}
+            )
+        }
     }
 }

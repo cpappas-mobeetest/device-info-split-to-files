@@ -427,6 +427,16 @@
     <string name="device_info_label_humidity">Humidity</string>
     <string name="device_info_label_uv_index">UV index</string>
     <string name="device_info_label_visibility">Visibility</string>
+    <string name="device_info_label_weather_location">Location</string>
+    <string name="device_info_label_weather_coordinates">Coordinates</string>
+    <string name="device_info_label_weather_last_updated">Last updated</string>
+    <string name="device_info_label_weather_condition">Condition</string>
+    <string name="device_info_label_weather_temperature">Temperature</string>
+    <string name="device_info_label_weather_pressure">Pressure</string>
+    <string name="device_info_label_weather_precipitation">Precipitation</string>
+    <string name="device_info_label_weather_cloud_cover">Cloud cover</string>
+    <string name="device_info_label_weather_uv_index">UV index</string>
+    <string name="device_info_label_weather_visibility">Visibility</string>
 
     <!-- Mobeetest field labels -->
     <string name="device_info_label_edition">Edition</string>

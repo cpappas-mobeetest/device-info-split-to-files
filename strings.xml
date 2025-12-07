@@ -311,7 +311,7 @@
 
     <!-- Section descriptions -->
     <string name="device_info_desc_cpu">Information about the main processor (SoC): number of cores, maximum frequencies, supported ABIs and cache levels. This section will show the processing capabilities of the device.</string>
-    <string name="device_info_desc_gpu">Information about the the graphics processor: Vulkan / OpenGL ES versions, vendor, renderer and supported extensions. Useful for evaluating graphics capabilities and API support.</string>
+    <string name="device_info_desc_gpu">Information about the graphics processor: Vulkan / OpenGL ES versions, vendor, renderer and supported extensions. Useful for evaluating graphics capabilities and API support.</string>
     <string name="device_info_desc_ram">Total memory, available memory and usage percentage. Helps you understand how loaded the device is while mobeetest is running.</string>
     <string name="device_info_desc_storage">List of all storage volumes (internal, external, SD): total space, used space and file system paths. This shows where mobeetest files are stored on the device.</string>
     <string name="device_info_desc_screen">Display information: resolution in pixels, dp dimensions, density class (mdpi/hdpi/…), refresh rate and orientation. Very useful for debugging UI layouts and responsiveness.</string>
@@ -486,22 +486,12 @@
     <string name="device_info_special_thanks">Special thanks: </string>
     <string name="device_info_special_thanks_pytorch">pytorch</string>
 
+    <!-- Storage labels -->
+    <string name="device_info_label_storage_volumes">Storage volumes</string>
+    <string name="device_info_label_storage_path">Path</string>
+    <string name="device_info_label_storage_total">Total</string>
+    <string name="device_info_label_storage_used">Used</string>
+    <string name="device_info_label_storage_used_space">Used space</string>
+
     <!-- ========== DeviceInfoScreen end ========== -->
-
-</resources>
-    
-    <!-- Storage labels -->
-    <string name="device_info_label_storage_volumes">Storage volumes</string>
-    <string name="device_info_label_storage_path">Path</string>
-    <string name="device_info_label_storage_total">Total</string>
-    <string name="device_info_label_storage_used">Used</string>
-    <string name="device_info_label_storage_used_space">Used space</string>
-    
-    <!-- Storage labels -->
-    <string name="device_info_label_storage_volumes">Storage volumes</string>
-    <string name="device_info_label_storage_path">Path</string>
-    <string name="device_info_label_storage_total">Total</string>
-    <string name="device_info_label_storage_used">Used</string>
-    <string name="device_info_label_storage_used_space">Used space</string>
-
 </resources>

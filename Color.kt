@@ -64,3 +64,11 @@ val deviceInfoDividerColor = Color(0xFF736D6D)
 
 // Links and special elements
 val deviceInfoLinkColor = Color(0xFF1565C0) // blue link style
+
+// Additional backgrounds and borders
+val deviceInfoTableBackground = Color(0xFFF5F7FA) // light background for tables
+val deviceInfoTableBorder = Color(0xFF95959B) // border for tables
+val deviceInfoStorageTableBackground = Color(0xFFF5F5F5) // storage table background
+
+// Weather temperature colors
+val deviceInfoWeatherTemperatureBlue = Color(0xFF1565C0) // blue for temperature display

@@ -255,4 +255,236 @@
 
     <!-- ========== PermissionsScreen end ========== -->
 
+    <!-- ========== DeviceInfoScreen start ========== -->
+
+    <!-- Common UI strings -->
+    <string name="device_info_unknown">Unknown</string>
+    <string name="device_info_copied_to_clipboard">Copied to clipboard</string>
+    <string name="device_info_show_less">Show less</string>
+    <string name="device_info_show_all">Show all (%1$d)</string>
+    <string name="device_info_none">None</string>
+    <string name="device_info_none_detected">None detected</string>
+    <string name="device_info_not_available">Not available</string>
+    <string name="device_info_yes">Yes</string>
+    <string name="device_info_no">No</string>
+    
+    <!-- Content descriptions -->
+    <string name="device_info_cd_info">Info %1$s</string>
+    <string name="device_info_cd_copy">Copy %1$s</string>
+    <string name="device_info_cd_manufacturer_logo">Manufacturer logo</string>
+    <string name="device_info_cd_mobeetest_logo">Mobeetest logo</string>
+    <string name="device_info_cd_android_logo">Android logo</string>
+    <string name="device_info_cd_love">Love</string>
+    <string name="device_info_cd_refresh">Refresh</string>
+
+    <!-- Section IDs -->
+    <string name="device_info_section_cpu">cpu</string>
+    <string name="device_info_section_gpu">gpu</string>
+    <string name="device_info_section_ram">ram</string>
+    <string name="device_info_section_storage">storage</string>
+    <string name="device_info_section_screen">screen</string>
+    <string name="device_info_section_os">os</string>
+    <string name="device_info_section_hardware">hardware</string>
+    <string name="device_info_section_hardware_battery">hardware_battery</string>
+    <string name="device_info_section_hardware_cameras">hardware_cameras</string>
+    <string name="device_info_section_hardware_wireless">hardware_wireless</string>
+    <string name="device_info_section_hardware_usb">hardware_usb</string>
+    <string name="device_info_section_hardware_sound_cards">hardware_sound_cards</string>
+    <string name="device_info_section_weather">weather</string>
+    <string name="device_info_section_mobeetest">mobeetest</string>
+
+    <!-- Section titles -->
+    <string name="device_info_title_cpu">CPU</string>
+    <string name="device_info_title_gpu">GPU</string>
+    <string name="device_info_title_ram">RAM</string>
+    <string name="device_info_title_storage">Storage</string>
+    <string name="device_info_title_screen">Screen</string>
+    <string name="device_info_title_os">OS</string>
+    <string name="device_info_title_hardware">Hardware</string>
+    <string name="device_info_title_battery">Battery</string>
+    <string name="device_info_title_cameras">Cameras</string>
+    <string name="device_info_title_wireless">Wireless</string>
+    <string name="device_info_title_usb">USB</string>
+    <string name="device_info_title_sound_cards">Sound cards</string>
+    <string name="device_info_title_weather">Weather</string>
+    <string name="device_info_title_mobeetest">Mobeetest</string>
+
+    <!-- Section descriptions -->
+    <string name="device_info_desc_cpu">Information about the main processor (SoC): number of cores, maximum frequencies, supported ABIs and cache levels. This section will show the processing capabilities of the device.</string>
+    <string name="device_info_desc_gpu">Information about the the graphics processor: Vulkan / OpenGL ES versions, vendor, renderer and supported extensions. Useful for evaluating graphics capabilities and API support.</string>
+    <string name="device_info_desc_ram">Total memory, available memory and usage percentage. Helps you understand how loaded the device is while mobeetest is running.</string>
+    <string name="device_info_desc_storage">List of all storage volumes (internal, external, SD): total space, used space and file system paths. This shows where mobeetest files are stored on the device.</string>
+    <string name="device_info_desc_screen">Display information: resolution in pixels, dp dimensions, density class (mdpi/hdpi/…), refresh rate and orientation. Very useful for debugging UI layouts and responsiveness.</string>
+    <string name="device_info_desc_os">Details about the operating system: name (Android / HarmonyOS, etc.), version, SDK level, manufacturer, fingerprint, root status, language, Android ID and security providers.</string>
+    <string name="device_info_desc_hardware">Overview of the device hardware: battery, cameras, audio, wireless capabilities and USB/OTG. The following subcategories break this down by subsystem.</string>
+    <string name="device_info_desc_battery">Battery capacity in mAh and battery technology (Li-ion, Li-Po, etc.). Useful to estimate how long the device can run continuous measurements.</string>
+    <string name="device_info_desc_cameras">List of device cameras (front, back, external) with sensor orientation. Lets you verify which cameras are available and how they are positioned.</string>
+    <string name="device_info_desc_wireless">Support for Bluetooth, Bluetooth LE, GPS, NFC, Wi-Fi (5 GHz, Direct, Passpoint), Wi-Fi Aware and IR emitter. Shows the wireless capabilities that can be used in measurement scenarios.</string>
+    <string name="device_info_desc_usb">Information about USB host / OTG support. Useful if you plan to connect external sensors or other devices in future mobeetest features.</string>
+    <string name="device_info_desc_sound_cards">Number of logical sound cards / audio output devices reported by the system.</string>
+    <string name="device_info_desc_weather">Current outdoor weather conditions at the device location (city, temperature, humidity, wind, UV index and visibility). Icons are dynamically adjusted based on the values.</string>
+    <string name="device_info_desc_mobeetest">Information about the Mobeetest application itself: edition, version, install / update timestamps, push identifiers and runtime statistics.</string>
+
+    <!-- CPU field labels -->
+    <string name="device_info_label_soc_name">SoC name</string>
+    <string name="device_info_label_primary_abi">Primary ABI</string>
+    <string name="device_info_label_cores">Cores</string>
+    <string name="device_info_label_arm_neon_support">ARM NEON support</string>
+    <string name="device_info_label_max_frequencies">Max frequencies (MHz)</string>
+    <string name="device_info_label_l1d_cache">L1d cache</string>
+    <string name="device_info_label_l1i_cache">L1i cache</string>
+    <string name="device_info_label_l2_cache">L2 cache</string>
+    <string name="device_info_label_l3_cache">L3 cache</string>
+
+    <!-- GPU field labels -->
+    <string name="device_info_label_vendor">Vendor</string>
+    <string name="device_info_label_renderer">Renderer</string>
+    <string name="device_info_label_opengl_es">OpenGL ES</string>
+    <string name="device_info_label_vulkan">Vulkan</string>
+    <string name="device_info_label_extensions">Extensions</string>
+
+    <!-- RAM field labels -->
+    <string name="device_info_label_total_ram">Total RAM</string>
+    <string name="device_info_label_available_ram">Available RAM</string>
+    <string name="device_info_label_low_memory_threshold">Low memory threshold</string>
+    <string name="device_info_label_available_ram_percent">Available RAM</string>
+
+    <!-- Screen field labels -->
+    <string name="device_info_label_screen_class">Screen class</string>
+    <string name="device_info_label_density_class">Density class</string>
+    <string name="device_info_label_visible_size_px">Visible size (px)</string>
+    <string name="device_info_label_visible_size_dp">Visible size (dp)</string>
+    <string name="device_info_label_absolute_size_px">Absolute size (px)</string>
+    <string name="device_info_label_absolute_size_dp">Absolute size (dp)</string>
+    <string name="device_info_label_density">Density</string>
+    <string name="device_info_label_refresh_rate">Refresh rate</string>
+    <string name="device_info_label_orientation">Orientation</string>
+
+    <!-- OS field labels -->
+    <string name="device_info_label_os_name">OS name</string>
+    <string name="device_info_label_version">Version</string>
+    <string name="device_info_label_sdk_level">SDK level</string>
+    <string name="device_info_label_codename">Codename</string>
+    <string name="device_info_label_manufacturer">Manufacturer</string>
+    <string name="device_info_label_brand">Brand</string>
+    <string name="device_info_label_model">Model</string>
+    <string name="device_info_label_board">Board</string>
+    <string name="device_info_label_kernel">Kernel</string>
+    <string name="device_info_label_rooted">Rooted</string>
+    <string name="device_info_label_running_on_emulator">Running on emulator</string>
+    <string name="device_info_label_encrypted_storage">Encrypted storage</string>
+    <string name="device_info_label_strongbox">StrongBox</string>
+    <string name="device_info_label_miui_version">MIUI version</string>
+    <string name="device_info_label_language">Language</string>
+    <string name="device_info_label_android_id">Android ID</string>
+    <string name="device_info_label_fingerprint">Fingerprint</string>
+    <string name="device_info_label_supported_abis">Supported ABIs</string>
+    <string name="device_info_label_security_providers">Security providers</string>
+    <string name="device_info_label_fcm_token">FCM token</string>
+    <string name="device_info_label_fcm_uuid">FCM UUID</string>
+
+    <!-- Battery field labels -->
+    <string name="device_info_label_battery_level">Battery level</string>
+    <string name="device_info_label_status">Status</string>
+    <string name="device_info_label_power_source">Power source</string>
+    <string name="device_info_label_health">Health</string>
+    <string name="device_info_label_temperature">Temperature</string>
+    <string name="device_info_label_battery_capacity">Battery capacity</string>
+    <string name="device_info_label_technology">Technology</string>
+
+    <!-- Wireless field labels -->
+    <string name="device_info_label_bluetooth">Bluetooth</string>
+    <string name="device_info_label_bluetooth_le">Bluetooth LE</string>
+    <string name="device_info_label_gps">GPS</string>
+    <string name="device_info_label_nfc">NFC</string>
+    <string name="device_info_label_nfc_card_emulation">NFC card emulation</string>
+    <string name="device_info_label_wifi">Wi-Fi</string>
+    <string name="device_info_label_wifi_aware">Wi-Fi Aware</string>
+    <string name="device_info_label_wifi_direct">Wi-Fi Direct</string>
+    <string name="device_info_label_wifi_passpoint">Wi-Fi Passpoint</string>
+    <string name="device_info_label_wifi_5ghz">Wi-Fi 5 GHz band</string>
+    <string name="device_info_label_wifi_p2p">Wi-Fi P2P</string>
+    <string name="device_info_label_ir_emitter">IR emitter</string>
+
+    <!-- Camera field labels -->
+    <string name="device_info_label_total_cameras">Total cameras</string>
+    <string name="device_info_label_available_cameras">Available cameras</string>
+
+    <!-- USB field labels -->
+    <string name="device_info_label_usb_otg">USB OTG / Host support</string>
+
+    <!-- Sound card field labels -->
+    <string name="device_info_label_sound_card_count">Sound card count</string>
+
+    <!-- Weather field labels -->
+    <string name="device_info_label_city">City</string>
+    <string name="device_info_label_region">Region</string>
+    <string name="device_info_label_country">Country</string>
+    <string name="device_info_label_local_time">Local time</string>
+    <string name="device_info_label_condition">Condition</string>
+    <string name="device_info_label_feels_like">Feels like</string>
+    <string name="device_info_label_wind">Wind</string>
+    <string name="device_info_label_humidity">Humidity</string>
+    <string name="device_info_label_uv_index">UV index</string>
+    <string name="device_info_label_visibility">Visibility</string>
+
+    <!-- Mobeetest field labels -->
+    <string name="device_info_label_edition">Edition</string>
+    <string name="device_info_label_installer_package">Installer package</string>
+    <string name="device_info_label_installed_on">Installed on</string>
+    <string name="device_info_label_last_updated_on">Last updated on</string>
+    <string name="device_info_label_total_updates">Total updates</string>
+    <string name="device_info_label_total_runs">Total runs</string>
+    <string name="device_info_label_last_run_at">Last run at</string>
+    <string name="device_info_label_active_services">Active services</string>
+    <string name="device_info_label_ftp_available_storage">FTP available storage</string>
+    <string name="device_info_label_build_type">Build Type</string>
+    <string name="device_info_label_application_id">Application id</string>
+
+    <!-- Mobeetest edition values -->
+    <string name="device_info_edition_paid">Paid edition</string>
+    <string name="device_info_edition_web_campaign">Web campaign edition</string>
+    <string name="device_info_edition_free">Free edition</string>
+
+    <!-- Battery status values -->
+    <string name="device_info_battery_status_charging">Charging</string>
+    <string name="device_info_battery_status_discharging">Discharging</string>
+    <string name="device_info_battery_status_not_charging">Not charging</string>
+    <string name="device_info_battery_status_full">Full</string>
+
+    <!-- Battery health values -->
+    <string name="device_info_battery_health_good">Good</string>
+    <string name="device_info_battery_health_failure">Failure</string>
+    <string name="device_info_battery_health_dead">Dead</string>
+    <string name="device_info_battery_health_overvoltage">Over voltage</string>
+    <string name="device_info_battery_health_overheated">Overheated</string>
+
+    <!-- Charger connection values -->
+    <string name="device_info_charger_ac">AC charger</string>
+    <string name="device_info_charger_usb">USB</string>
+    <string name="device_info_charger_wireless">Wireless</string>
+    <string name="device_info_charger_battery">On battery</string>
+
+    <!-- Orientation values -->
+    <string name="device_info_orientation_portrait">0 (Portrait)</string>
+    <string name="device_info_orientation_landscape">90 (Landscape)</string>
+    <string name="device_info_orientation_reverse_portrait">180 (Reverse portrait)</string>
+    <string name="device_info_orientation_reverse_landscape">270 (Reverse landscape)</string>
+
+    <!-- Storage field labels -->
+    <string name="device_info_label_path">Path</string>
+    <string name="device_info_label_total">Total</string>
+    <string name="device_info_label_used">Used</string>
+    <string name="device_info_label_used_space">Used space</string>
+
+    <!-- Table headers -->
+    <string name="device_info_table_header_index">#</string>
+    <string name="device_info_table_header_value">Value</string>
+
+    <!-- Special thanks -->
+    <string name="device_info_special_thanks">Special thanks: </string>
+    <string name="device_info_special_thanks_pytorch">pytorch</string>
+
+    <!-- ========== DeviceInfoScreen end ========== -->
+
 </resources>

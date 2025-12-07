@@ -149,7 +149,7 @@ fun DeviceInfoDateTimeFieldRow(
                         .fillMaxWidth()
                         .background(
                             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.9f),
-                            shape = deviceInfoCornerRadius8
+                            shape = androidx.compose.foundation.shape.RoundedCornerShape(deviceInfoCornerRadius8)
                         )
                         .padding(horizontal = deviceInfoSpacing10, vertical = deviceInfoSpacing6)
                 ) {

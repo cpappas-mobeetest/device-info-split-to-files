@@ -5,7 +5,6 @@ import com.mobeetest.worker.ui.theme.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import com.mobeetest.worker.R
-import com.mobeetest.worker.models.WeatherInfo
 
 @Composable
 fun WeatherSectionFields(weather: WeatherInfo, iconRes: Int) {
@@ -104,7 +103,7 @@ fun WeatherSectionFields(weather: WeatherInfo, iconRes: Int) {
     )
 
     DeviceInfoValueRow(
-        index = index++,
+        index = ++index,
         iconRes = iconRes,
         label = stringResource(R.string.device_info_label_weather_visibility),
         value = formatWeatherInfo(weather.current?.visKm, weather.current?.visMiles, "km", "mi"),

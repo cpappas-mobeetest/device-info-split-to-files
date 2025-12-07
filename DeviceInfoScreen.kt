@@ -119,11 +119,14 @@ fun DeviceInfoScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     RightSideIcons(
-                        updateState = ,
-                        onRefreshClick =,
-                        onShareClick =,
-                        sectionId = ,
-                        modifier =
+                        updateState = if (updateInProgress) "InProgress" else "Idle",
+                        onRefreshClick = { viewModel.loadDeviceInfo() },
+                        onShareClick = { sectionId -> 
+                            // Share functionality for the section
+                            viewModel.shareSection(sectionId)
+                        },
+                        sectionId = "all",
+                        modifier = Modifier
                     )
                 }
             }

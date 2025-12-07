@@ -141,7 +141,7 @@ fun StorageVolumeField(
                         .fillMaxWidth()
                         .background(
                             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.9f),
-                            shape = deviceInfoCornerRadius8
+                            shape = androidx.compose.foundation.shape.RoundedCornerShape(deviceInfoCornerRadius8)
                         )
                         .padding(horizontal = deviceInfoSpacing10, vertical = deviceInfoSpacing6)
                 ) {
@@ -158,8 +158,8 @@ fun StorageVolumeField(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = deviceInfoSpacing16, vertical = deviceInfoSpacing4)
-                .clip(deviceInfoCornerRadius8)
-                .border(deviceInfoBorderThickness, outlineColor, deviceInfoCornerRadius8)
+                .clip(androidx.compose.foundation.shape.RoundedCornerShape(deviceInfoCornerRadius8))
+                .border(deviceInfoBorderThickness, outlineColor, androidx.compose.foundation.shape.RoundedCornerShape(deviceInfoCornerRadius8))
                 .background(tableBg)
         ) {
             DynamicValueColumnTable(

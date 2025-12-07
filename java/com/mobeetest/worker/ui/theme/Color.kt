@@ -61,6 +61,7 @@ val deviceInfoFieldBackgroundOdd = Color(0xFFFFFDE7) // odd rows - light cream
 
 // Dividers
 val deviceInfoDividerColor = Color(0xFF736D6D)
+val deviceInfoDivider = deviceInfoDividerColor
 
 // Links and special elements
 val deviceInfoLinkColor = Color(0xFF1565C0) // blue link style

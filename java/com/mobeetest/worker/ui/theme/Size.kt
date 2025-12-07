@@ -134,3 +134,6 @@ val deviceInfoScrollbarThickness = 4.dp
 val deviceInfoDonutStrokeWidth = 5.dp
 val deviceInfoDonutSize = 96.dp
 
+// Field index width
+val deviceInfoFieldIndexWidth = 22.dp
+

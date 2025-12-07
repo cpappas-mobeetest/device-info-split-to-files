@@ -72,3 +72,12 @@ val mainDrawerVerticalPadding = 12.dp
 val mainDrawerSheetTopPadding = 57.dp
 val mainDrawerSheetBottomPadding = 58.dp
 
+// ===============================
+// DEVICE INFO SCREEN SIZES
+// ===============================
+
+val deviceInfoHorizontalPadding = 12.dp
+val deviceInfoScrollbarExtraPadding = 8.dp
+val deviceInfoFieldIndexColumnWidth = 22.dp
+val deviceInfoTableIndexColumnWidth = 40.dp
+

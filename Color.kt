@@ -44,3 +44,23 @@ val mainScaffoldTopBarIcon = Color(0xFFFFFFFF)
 val mainBottomBarBorder = Color(0xFF1A6B55)
 val mainBottomBarBackground = Color(0xFFFFD700)
 val mainBottomBarSelectedItemBackground = Color(0xFFEEE680)
+
+// ===============================
+// DEVICE INFO SCREEN COLORS
+// ===============================
+
+// Section headers
+val deviceInfoCategoryHeaderBackground = Color(0xFFE6F4EA)      // light green
+val deviceInfoCategoryHeaderContent = Color(0xFF0D652D)        // dark green
+val deviceInfoSubCategoryHeaderBackground = Color(0xFFFFF7CC)  // light yellow
+val deviceInfoSubCategoryHeaderContent = Color(0xFF7A4F00)     // dark golden brown
+
+// Field backgrounds (zebra striping)
+val deviceInfoFieldBackgroundEven = Color(0xFFF1F8E9) // even rows - light green
+val deviceInfoFieldBackgroundOdd = Color(0xFFFFFDE7) // odd rows - light cream
+
+// Dividers
+val deviceInfoDividerColor = Color(0xFF736D6D)
+
+// Links and special elements
+val deviceInfoLinkColor = Color(0xFF1565C0) // blue link style

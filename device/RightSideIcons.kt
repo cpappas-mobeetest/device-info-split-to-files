@@ -24,9 +24,9 @@ fun RightSideIcons(
     ) {
         // Update/Refresh icon with animated GIF support
         PlayGifAtLeastWhileInProgress(
-            showGif = (updateState == "InProgress"),
-            normalIcon = R.drawable.refresh,
-            gifIcon = R.drawable.refresh_animated,
+            inProgress = (updateState == "InProgress"),
+            resId = R.drawable.update,
+            gifIcon = R.drawable.update_gif,
             contentDescription = "Refresh device info",
             onClick = onRefreshClick
         )

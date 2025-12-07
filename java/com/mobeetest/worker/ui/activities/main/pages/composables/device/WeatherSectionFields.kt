@@ -152,7 +152,7 @@ fun WeatherSectionFields(weatherJson: String?, iconRes: Int) {
                 iconRes = iconRes,
                 label = stringResource(R.string.device_info_label_weather_uv_index),
                 value = parsed.uvIndex?.toString() ?: stringResource(R.string.device_info_unknown),
-                infoDescription = "UV index indicating strength of ultraviolet radiation (${uvBucket(parsed.uvIndex).name.lowercase().replace('_', ' ')})."
+                infoDescription = "UV index indicating strength of ultraviolet radiation${parsed.uvIndex?.let { uv -> " (${uvBucket(uv).name.lowercase().replace('_', ' ')})" } ?: ""}."
             )
             Spacer(modifier = Modifier.width(deviceInfoSpacing8))
             MiniUVGauge(uvIndex = parsed.uvIndex, modifier = Modifier.size(deviceInfoIconSize28))

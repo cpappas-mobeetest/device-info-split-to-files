@@ -123,8 +123,8 @@ internal fun windDirToDegrees(dir: String?): Float? {
 internal fun parseWeatherParsedInfo(weather: com.mobeetest.worker.ui.activities.main.pages.composables.device.WeatherInfo?): WeatherParsedInfo? {
     if (weather == null) return null
     
-    val isDayRaw = weather.current?.condition?.code // Note: actual isDay field not in our model
-    val isDay: Boolean? = null // Would need to be added to WeatherInfo if available in JSON
+    // Note: isDay field would need to be added to WeatherInfo if available in JSON
+    val isDay: Boolean? = null
     
     return WeatherParsedInfo(
         city = weather.location?.name,

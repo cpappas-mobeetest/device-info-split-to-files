@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Mobeetest</string>
+
+    <!-- ========== PermissionsScreen start ========== -->
+
+    <string name="permissions_screen_title">Mobeetest: Checking permissions</string>
+    <string name="permissions_screen_skip_contentDescription">Skip permission check</string>
+
+    <string name="permissions_check_in_progress_full">
+        Checking permissions: Step %1$d of %2$d — %3$s
+    </string>
+
+    <!-- Short titles -->
+    <string name="permissions_screen_battery">Ignore battery optimizations</string>
+    <string name="permissions_screen_location">Coarse &amp; fine location</string>
+    <string name="permissions_screen_notifications">Post notifications</string>
+    <string name="permissions_screen_overlay">Overlay permission</string>
+    <string name="permissions_screen_phone">Read phone state</string>
+    <string name="permissions_screen_background">Background location</string>
+    <string name="permissions_screen_camera">Camera</string>
+    <string name="permissions_screen_pause">Pause app activity when unused</string>
+    <string name="permissions_screen_wifi">Nearby Wi-Fi devices</string>
+    <string name="permissions_screen_boot">Auto-start after boot</string>
+
+    <!-- Full names -->
+    <string name="permissions_screen_battery_full">Ignore battery optimizations</string>
+    <string name="permissions_screen_location_full">Coarse &amp; fine location</string>
+    <string name="permissions_screen_notifications_full">Post notifications</string>
+    <string name="permissions_screen_overlay_full">Overlay permission</string>
+    <string name="permissions_screen_phone_full">Read phone state</string>
+    <string name="permissions_screen_background_full">Background location</string>
+    <string name="permissions_screen_camera_full">Camera</string>
+    <string name="permissions_screen_pause_full">Pause app activity when unused</string>
+    <string name="permissions_screen_wifi_full">Nearby Wi-Fi devices</string>
+    <string name="permissions_screen_boot_full">Auto-start after boot</string>
+
+    <!-- Status -->
+    <string name="permissions_screen_requesting">Checking…</string>
+    <string name="permissions_screen_granted">Allowed</string>
+    <string name="permissions_screen_denied">Denied</string>
+    <string name="permissions_screen_not_checked">Pending</string>
+
+    <!-- End of check -->
+    <string name="permissions_check_ended_all_granted">
+        All permissions granted. No further action needed.
+    </string>
+    <string name="permissions_check_ended_some_denied">
+        Permission check completed. You must review %1$d permission(s).
+    </string>
+
+    <string name="permissions_button_recheck_all">ReCheck All</string>
+    <string name="permissions_screen_reset_contentDescription">ReCheck All</string>
+
+    <string name="permissions_screen_alert_dialog_ok_text">Next</string>
+
+    <!-- Alerts -->
+    <!-- Battery -->
+    <string name="permissions_screen_alert_battery_title">Ignore battery optimizations</string>
+    <string name="permissions_screen_alert_battery_message">
+        Please press “Allow” or choose “No restrictions” to continue.
+    </string>
+
+    <!-- Location -->
+    <string name="permissions_screen_alert_location_title">Coarse &amp; Fine Location</string>
+    <string name="permissions_screen_alert_location_message">
+        Select “While using the app” to allow coarse and fine location access.
+    </string>
+    <string name="permissions_screen_alert_location_message_after_many_denies">
+        The permission dialog is now blocked due to repeated denials.
+        Please open Settings and enable “While using the app”.
+    </string>
+    <string name="permissions_screen_alert_location_settings_message">
+        The permission dialog is blocked due to repeated denials.
+        Please open Settings and enable “While using the app”.
+    </string>
+
+    <!-- Notifications -->
+    <string name="permissions_screen_alert_notifications_title">Notifications</string>
+    <string name="permissions_screen_alert_notifications_message">
+        Please press “Allow” to enable notifications.
+    </string>
+    <string name="permissions_screen_alert_notifications_title_after_many_denies">
+        The notification dialog is blocked due to repeated denials.
+        Please open Settings to enable notification access.
+    </string>
+    <string name="permissions_screen_alert_notifications_settings_message">
+        The permission dialog is blocked due to repeated denials.
+        Please open Settings and enable notification access.
+    </string>
+
+    <!-- Overlay -->
+    <string name="permissions_screen_alert_overlay_title">Overlay permission (display over other apps)</string>
+    <string name="permissions_screen_alert_overlay_message">
+        Select the Mobeetest app, then enable “Display over other apps”.
+    </string>
+
+    <!-- Phone -->
+    <string name="permissions_screen_alert_phone_title">Read phone state</string>
+    <string name="permissions_screen_alert_phone_message">
+        Please press “Allow” to give access to phone state.
+    </string>
+    <string name="permissions_screen_alert_phone_title_after_many_denies">
+        The permission dialog is blocked due to repeated denials.
+        Please open Settings and enable phone state access.
+    </string>
+    <string name="permissions_screen_alert_phone_settings_message">
+        Please open Settings and enable phone state access.
+    </string>
+
+    <!-- Background location -->
+    <string name="permissions_screen_alert_background_title">Background location</string>
+    <string name="permissions_screen_alert_background_message">
+        Select “Allow all the time” for background location.
+    </string>
+    <string name="permissions_screen_alert_background_title_after_many_denies">
+        The dialog is blocked due to repeated denials.
+        Please open Settings and enable “Allow all the time”.
+    </string>
+    <string name="permissions_screen_alert_background_settings_message">
+        Please open Settings and enable “Allow all the time”.
+    </string>
+
+    <!-- Camera -->
+    <string name="permissions_screen_alert_camera_title">Camera</string>
+    <string name="permissions_screen_alert_camera_message">
+        Please press “Allow” to give access to the camera.
+    </string>
+    <string name="permissions_screen_alert_camera_title_after_many_denies">
+        The dialog is blocked due to repeated denials.
+        Please open Settings and enable camera access.
+    </string>
+    <string name="permissions_screen_alert_camera_settings_message">
+        Please open Settings and enable camera access.
+    </string>
+
+    <!-- Pause when unused -->
+    <string name="permissions_screen_alert_pause_title">Pause app activity when unused</string>
+    <string name="permissions_screen_alert_pause_message">
+        Disable “Pause app activity when unused” in App Settings to ensure proper operation.
+    </string>
+
+    <!-- WiFi -->
+    <string name="permissions_screen_alert_wifi_title">Nearby Wi-Fi Devices</string>
+    <string name="permissions_screen_alert_wifi_message">
+        Please press “Allow” to access nearby Wi-Fi devices.
+    </string>
+    <string name="permissions_screen_alert_wifi_title_after_many_denies">
+        The dialog is blocked due to repeated denials.
+        Please open Settings and enable Wi-Fi access.
+    </string>
+    <string name="permissions_screen_alert_wifi_settings_message">
+        Please open Settings and enable nearby Wi-Fi device access.
+    </string>
+
+    <!-- Boot -->
+    <string name="permissions_screen_alert_boot_title">Auto-start after boot</string>
+    <string name="permissions_screen_alert_boot_message">
+        Enable auto-start after boot for full functionality.
+    </string>
+    <string name="permissions_screen_alert_boot_settings_message">
+        Please open Settings and enable auto-start after boot.
+    </string>
+
+    <!-- Toasts -->
+    <!-- Battery -->
+    <string name="toast_battery_permission_denied">
+        Battery optimization not ignored. Press “Allow” or choose “No restrictions” next time.
+    </string>
+    <string name="toast_battery_permission_granted">
+        Battery optimization ignored successfully!
+    </string>
+
+    <!-- Location -->
+    <string name="toast_location_permission_denied">
+        Location permission denied. Please select “While using the app” next time.
+    </string>
+    <string name="toast_location_permission_granted">
+        Location permission granted!
+    </string>
+
+    <!-- Notifications -->
+    <string name="toast_notifications_permission_denied">
+        Notifications permission denied. Please press “Allow” next time.
+    </string>
+    <string name="toast_notifications_permission_granted">
+        Notifications permission granted!
+    </string>
+
+    <!-- Overlay -->
+    <string name="toast_overlay_permission_denied">
+        Overlay permission denied. Please select the app and enable the permission.
+    </string>
+    <string name="toast_overlay_permission_granted">
+        Overlay permission granted!
+    </string>
+
+    <!-- Phone -->
+    <string name="toast_phone_permission_denied">
+        Phone state permission denied. Please press “Allow” next time.
+    </string>
+    <string name="toast_phone_permission_granted">
+        Phone state permission granted!
+    </string>
+
+    <!-- Background -->
+    <string name="toast_background_permission_denied_direct">
+        Background location denied. Please choose “Allow all the time” next time.
+    </string>
+    <string name="toast_background_permission_denied_cascaded">
+        Background location denied because location is also denied.
+        Grant location first, then background.
+    </string>
+    <string name="toast_background_permission_granted">
+        Background location permission granted!
+    </string>
+
+    <!-- Camera -->
+    <string name="toast_camera_permission_denied">
+        Camera permission denied. Please press “Allow” next time.
+    </string>
+    <string name="toast_camera_permission_granted">
+        Camera permission granted!
+    </string>
+
+    <!-- Pause -->
+    <string name="toast_pause_permission_denied">
+        Pause app activity is still enabled. Please disable it in App Settings.
+    </string>
+    <string name="toast_pause_permission_granted">
+        Pause app activity disabled successfully!
+    </string>
+
+    <!-- WiFi -->
+    <string name="toast_wifi_permission_denied">
+        Nearby Wi-Fi permission denied. Please press “Allow” next time.
+    </string>
+    <string name="toast_wifi_permission_granted">
+        Nearby Wi-Fi permission granted!
+    </string>
+
+    <!-- Boot -->
+    <string name="toast_boot_permission_denied">Auto-start after boot denied.</string>
+    <string name="toast_boot_permission_granted">Auto-start after boot enabled!</string>
+
+    <string name="permissions_check_necessary_permissions">The following permissions are strongly suggested and necessary to work the application properly: Read phone state, Access coarse and fine location, Access background location.</string>
+    <string name="mobeetest">Mobeetest</string>
+    <string name="summary">Summary</string>
+    <string name="run_all">• Run all</string>
+    <string name="pause_all">• Pause all</string>
+    <string name="stop_all">• Stop all</string>
+    <string name="dashboard">Dashboard</string>
+
+
+    <!-- ========== PermissionsScreen end ========== -->
+
+</resources>

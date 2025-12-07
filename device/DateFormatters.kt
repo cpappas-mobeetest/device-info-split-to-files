@@ -1,7 +1,5 @@
 package com.mobeetest.worker.ui.activities.main.pages.composables.device
 
-import com.mobeetest.worker.ui.theme.*
-
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -15,6 +13,7 @@ internal fun formatDateTime(millis: Long): String {
     val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
     return formatter.format(Date(millis))
 }
+
 
 internal fun formatDateTimeNoSeconds(millis: Long): String {
     if (millis <= 0L) return "Unknown"

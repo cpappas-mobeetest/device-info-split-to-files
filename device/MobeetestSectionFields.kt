@@ -3,9 +3,7 @@ package com.mobeetest.worker.ui.activities.main.pages.composables.device
 import com.mobeetest.worker.ui.theme.*
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.stringResource
-import com.mobeetest.worker.R
-import com.mobeetest.worker.models.MobeetestInfo
+import com.mobeetest.worker.data.model.device.MobeetestInfo
 
 @Composable
 fun MobeetestSectionFields(mobeetest: MobeetestInfo, iconRes: Int) {
@@ -18,7 +16,7 @@ fun MobeetestSectionFields(mobeetest: MobeetestInfo, iconRes: Int) {
                     index = index + 1,
                     iconRes = iconRes,
                     label = row.label,
-                    value = row.value ?: stringResource(R.string.device_info_unknown),
+                    value = row.value,
                     infoDescription = row.infoDescription,
                     showBottomDivider = (index < rows.lastIndex)
                 )

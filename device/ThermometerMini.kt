@@ -1,7 +1,5 @@
 package com.mobeetest.worker.ui.activities.main.pages.composables.device
 
-import com.mobeetest.worker.ui.theme.*
-
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -13,8 +11,6 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.unit.dp
-import kotlin.math.max
-import kotlin.math.min
 
 @Composable
 fun ThermometerMini(temperatureC: Double, modifier: Modifier = Modifier) {

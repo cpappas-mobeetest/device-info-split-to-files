@@ -1,7 +1,5 @@
 package com.mobeetest.worker.ui.activities.main.pages.composables.device
 
-import com.mobeetest.worker.ui.theme.*
-
 import com.mobeetest.worker.R
 import com.mobeetest.worker.data.model.device.DeviceInfo
 

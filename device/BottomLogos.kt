@@ -1,7 +1,5 @@
 package com.mobeetest.worker.ui.activities.main.pages.composables.device
 
-import com.mobeetest.worker.ui.theme.*
-
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable

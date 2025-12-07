@@ -20,7 +20,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.unit.dp
 import com.mobeetest.worker.R
 import com.mobeetest.worker.ui.theme.*
 import kotlinx.coroutines.delay

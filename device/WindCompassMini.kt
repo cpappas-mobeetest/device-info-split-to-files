@@ -1,7 +1,5 @@
 package com.mobeetest.worker.ui.activities.main.pages.composables.device
 
-import com.mobeetest.worker.ui.theme.*
-
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -56,7 +54,7 @@ fun WindCompassMini(windDir: String?, modifier: Modifier = Modifier) {
 
         // Arrow pointing to wind direction
         if (degrees != null) {
-            rotate(degrees.toFloat(), pivot = Offset(centerX, centerY)) {
+            rotate(degrees, pivot = Offset(centerX, centerY)) {
                 val arrowPath = Path().apply {
                     val arrowLength = radius * 0.6f
                     val arrowWidth = radius * 0.15f
@@ -74,27 +72,5 @@ fun WindCompassMini(windDir: String?, modifier: Modifier = Modifier) {
                 )
             }
         }
-    }
-}
-
-private fun windDirToDegrees(dir: String?): Int? {
-    return when (dir?.uppercase()) {
-        "N" -> 0
-        "NNE" -> 23
-        "NE" -> 45
-        "ENE" -> 68
-        "E" -> 90
-        "ESE" -> 113
-        "SE" -> 135
-        "SSE" -> 158
-        "S" -> 180
-        "SSW" -> 203
-        "SW" -> 225
-        "WSW" -> 248
-        "W" -> 270
-        "WNW" -> 293
-        "NW" -> 315
-        "NNW" -> 338
-        else -> null
     }
 }

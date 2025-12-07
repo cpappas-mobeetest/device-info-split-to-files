@@ -1,5 +1,6 @@
 package com.mobeetest.worker.ui.activities.main.pages.composables.device
 
+import androidx.compose.animation.AnimatedVisibility
 import com.mobeetest.worker.ui.theme.*
 
 import androidx.compose.foundation.layout.*

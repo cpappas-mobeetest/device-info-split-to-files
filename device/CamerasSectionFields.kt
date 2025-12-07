@@ -1,7 +1,5 @@
 package com.mobeetest.worker.ui.activities.main.pages.composables.device
 
-import com.mobeetest.worker.ui.theme.*
-
 import androidx.compose.runtime.Composable
 import com.mobeetest.worker.data.model.device.CameraInfo
 
@@ -21,7 +19,7 @@ fun CamerasSectionFields(cameras: List<CameraInfo>, iconRes: Int) {
     }
 
     DeviceInfoValueRow(
-        index = index++,
+        index = ++index,
         iconRes = iconRes,
         label = "Total cameras",
         value = cameras.size.toString(),

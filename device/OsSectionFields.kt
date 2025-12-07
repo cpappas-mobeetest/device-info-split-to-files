@@ -1,12 +1,12 @@
 package com.mobeetest.worker.ui.activities.main.pages.composables.device
 
-import com.mobeetest.worker.ui.theme.*
-
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import com.mobeetest.worker.R
 import com.mobeetest.worker.data.model.device.OsInfo
 
+@ExperimentalFoundationApi
 @Composable
 fun OsSectionFields(os: OsInfo, iconRes: Int) {
     var index = 1

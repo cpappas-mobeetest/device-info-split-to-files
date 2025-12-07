@@ -21,7 +21,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mobeetest.worker.R
-import com.mobeetest.worker.models.StorageInfo
+import com.mobeetest.worker.data.model.device.StorageInfo
 
 @Composable
 fun DynamicValueColumnTable(

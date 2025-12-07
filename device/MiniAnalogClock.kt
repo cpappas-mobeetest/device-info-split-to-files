@@ -60,7 +60,7 @@ fun MiniAnalogClock(timeMillis: Long) {
         }
 
         // Hour hand
-        val hourAngle = Math.toRadians(((hour % 12) * 30 + minute * 0.5 - 90).toDouble())
+        val hourAngle = Math.toRadians(((hour % 12) * 30 + minute * 0.5 - 90))
         val hourHandLength = radius * 0.5f
         drawLine(
             color = Color(0xFF424242),

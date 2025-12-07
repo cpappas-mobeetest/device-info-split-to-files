@@ -2,6 +2,7 @@ package com.mobeetest.worker.ui.activities.main.pages.composables.device
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -27,6 +28,7 @@ import com.mobeetest.worker.ui.theme.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+@ExperimentalFoundationApi
 @Composable
 fun DeviceInfoTextListField(
     index: Int,

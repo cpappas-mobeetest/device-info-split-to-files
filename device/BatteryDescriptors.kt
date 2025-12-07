@@ -1,7 +1,5 @@
 package com.mobeetest.worker.ui.activities.main.pages.composables.device
 
-import com.mobeetest.worker.ui.theme.*
-
 import com.mobeetest.worker.data.model.device.BatteryHealth
 import com.mobeetest.worker.data.model.device.BatteryStatus
 import com.mobeetest.worker.data.model.device.ChargerConnection

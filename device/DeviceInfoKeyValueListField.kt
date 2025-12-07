@@ -2,6 +2,7 @@ package com.mobeetest.worker.ui.activities.main.pages.composables.device
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -30,6 +31,7 @@ import kotlinx.coroutines.launch
 /**
  * Key-value table for lists like Security providers
  */
+@ExperimentalFoundationApi
 @Composable
 fun DeviceInfoKeyValueListField(
     index: Int,

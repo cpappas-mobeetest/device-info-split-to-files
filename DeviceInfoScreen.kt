@@ -3,7 +3,6 @@
 package com.mobeetest.worker.ui.activities.main.pages.screens
 
 // Android & Compose core imports
-import androidx.annotation.DrawableRes
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
@@ -120,8 +119,11 @@ fun DeviceInfoScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     RightSideIcons(
-                        viewModel = viewModel,
-                        updateInProgress = updateInProgress
+                        updateState = ,
+                        onRefreshClick =,
+                        onShareClick =,
+                        sectionId = ,
+                        modifier =
                     )
                 }
             }
@@ -443,7 +445,7 @@ private fun DeviceInfoSectionItem(
                             "hardware_usb" -> UsbSectionFields(info.hardware.usb, item.iconRes)
                             "weather" -> WeatherSectionFields(info.weatherInfo, item.iconRes)
                             "mobeetest" -> MobeetestSectionFields(
-                                info = info.mobeetestInfo,
+                                mobeetest = info.mobeetestInfo,
                                 iconRes = R.drawable.ic_launcher_foreground
                             )
                         }

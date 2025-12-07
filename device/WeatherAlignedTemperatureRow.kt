@@ -1,6 +1,7 @@
 package com.mobeetest.worker.ui.activities.main.pages.composables.device
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.foundation.background
 import com.mobeetest.worker.ui.theme.*
 
 import androidx.compose.foundation.layout.*
@@ -9,12 +10,14 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import com.mobeetest.worker.R
 import kotlinx.coroutines.delay
 import java.util.Locale

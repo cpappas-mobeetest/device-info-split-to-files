@@ -2,6 +2,7 @@ package com.mobeetest.worker.ui.activities.main.pages.composables.device
 
 import java.util.Locale
 
+@Suppress("unused") // May be used for advanced weather parsing
 internal data class WeatherParsedInfo(
     val city: String?,
     val region: String?,
@@ -44,6 +45,7 @@ internal enum class UvBucket {
     EXTREME
 }
 
+@Suppress("unused") // May be used for weather icon selection
 internal fun categorizeWeatherCondition(
     text: String?,
     isDay: Boolean?
@@ -73,6 +75,7 @@ internal fun categorizeWeatherCondition(
     }
 }
 
+@Suppress("unused") // May be used for temperature-based UI theming
 internal fun temperatureBucket(tempC: Double?): TemperatureBucket {
     val t = tempC ?: return TemperatureBucket.MILD
     return when {
@@ -83,6 +86,7 @@ internal fun temperatureBucket(tempC: Double?): TemperatureBucket {
     }
 }
 
+@Suppress("unused") // May be used for UV index categorization
 internal fun uvBucket(uv: Double?): UvBucket {
     val v = uv ?: return UvBucket.LOW
     return when {

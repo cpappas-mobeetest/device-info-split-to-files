@@ -34,7 +34,6 @@ fun WindCompassMini(windDir: String?, modifier: Modifier = Modifier) {
         )
 
         // Cardinal directions
-        val textRadius = radius * 0.7f
         val directionColor = Color(0xFF9E9E9E)
         
         // N, E, S, W markers

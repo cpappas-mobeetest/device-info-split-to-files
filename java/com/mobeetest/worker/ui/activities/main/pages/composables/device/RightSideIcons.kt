@@ -36,18 +36,5 @@ fun RightSideIcons(
                 onFinished = {}
             )
         }
-
-        // Share icon
-        ActionIconSlot(
-            touchSize = deviceInfoIconSize28,
-            onClick = { onShareClick(sectionId) }
-        ) {
-            androidx.compose.material3.Icon(
-                painter = androidx.compose.ui.res.painterResource(id = R.drawable.share),
-                contentDescription = "Share $sectionId info",
-                tint = androidx.compose.ui.graphics.Color.Unspecified,
-                modifier = Modifier.size(deviceInfoIconSize24)
-            )
-        }
     }
 }

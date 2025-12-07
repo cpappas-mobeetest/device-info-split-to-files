@@ -12,7 +12,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.unit.dp
 
-@Suppress("unused") // May be used in future weather UI enhancements
 @Composable
 fun MiniVisibilityBar(visibilityKm: Double?, modifier: Modifier = Modifier) {
     val vis = visibilityKm ?: 0.0

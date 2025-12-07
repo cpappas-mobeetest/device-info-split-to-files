@@ -17,7 +17,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import java.util.*
 
-@Suppress("unused") // Used by DeviceInfoDateFieldRow
 @Composable
 fun MiniMonthCalendar(millis: Long) {
     val calendar = Calendar.getInstance().apply {

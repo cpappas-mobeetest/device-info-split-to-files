@@ -2,7 +2,6 @@ package com.mobeetest.worker.ui.activities.main.pages.composables.device
 
 import java.util.Locale
 
-@Suppress("unused") // May be used for advanced weather parsing
 internal data class WeatherParsedInfo(
     val city: String?,
     val region: String?,
@@ -45,7 +44,6 @@ internal enum class UvBucket {
     EXTREME
 }
 
-@Suppress("unused") // May be used for weather icon selection
 internal fun categorizeWeatherCondition(
     text: String?,
     isDay: Boolean?
@@ -75,7 +73,6 @@ internal fun categorizeWeatherCondition(
     }
 }
 
-@Suppress("unused") // May be used for temperature-based UI theming
 internal fun temperatureBucket(tempC: Double?): TemperatureBucket {
     val t = tempC ?: return TemperatureBucket.MILD
     return when {
@@ -86,7 +83,6 @@ internal fun temperatureBucket(tempC: Double?): TemperatureBucket {
     }
 }
 
-@Suppress("unused") // May be used for UV index categorization
 internal fun uvBucket(uv: Double?): UvBucket {
     val v = uv ?: return UvBucket.LOW
     return when {
@@ -119,4 +115,30 @@ internal fun windDirToDegrees(dir: String?): Float? {
         "NNW" -> 337.5f
         else -> null
     }
+}
+
+/**
+ * Convert WeatherInfo to WeatherParsedInfo for easier access
+ */
+internal fun parseWeatherParsedInfo(weather: com.mobeetest.worker.ui.activities.main.pages.composables.device.WeatherInfo?): WeatherParsedInfo? {
+    if (weather == null) return null
+    
+    val isDayRaw = weather.current?.condition?.code // Note: actual isDay field not in our model
+    val isDay: Boolean? = null // Would need to be added to WeatherInfo if available in JSON
+    
+    return WeatherParsedInfo(
+        city = weather.location?.name,
+        region = weather.location?.region,
+        country = weather.location?.country,
+        localTime = weather.location?.localtime,
+        temperatureC = weather.current?.tempC,
+        conditionText = weather.current?.condition?.text,
+        isDay = isDay,
+        feelsLikeC = weather.current?.feelslikeC,
+        windKph = weather.current?.windKph,
+        windDir = weather.current?.windDir,
+        humidity = weather.current?.humidity,
+        uvIndex = weather.current?.uv,
+        visibilityKm = weather.current?.visKm
+    )
 }

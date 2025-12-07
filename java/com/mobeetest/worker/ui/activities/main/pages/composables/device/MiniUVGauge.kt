@@ -14,7 +14,6 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.unit.dp
 import kotlin.math.min
 
-@Suppress("unused") // May be used in future weather UI enhancements
 @Composable
 fun MiniUVGauge(uvIndex: Double?, modifier: Modifier = Modifier) {
     val uv = uvIndex ?: 0.0

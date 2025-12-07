@@ -1,4 +1,6 @@
-package com.mobeetest.worker.activities.main.pages.composables.device
+package com.mobeetest.worker.ui.activities.main.pages.composables.device
+
+import com.mobeetest.worker.ui.theme.*
 
 import androidx.compose.runtime.Composable
 import com.mobeetest.worker.data.model.device.CameraInfo

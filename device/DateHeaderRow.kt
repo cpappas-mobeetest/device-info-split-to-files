@@ -1,4 +1,4 @@
-package com.mobeetest.worker.activities.main.pages.composables.device
+package com.mobeetest.worker.ui.activities.main.pages.composables.device
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background

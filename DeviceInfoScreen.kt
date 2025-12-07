@@ -58,59 +58,59 @@ import com.mobeetest.worker.ui.theme.mainBottomBarBorderHeight
 import com.mobeetest.worker.data.model.device.DeviceInfo
 
 // Imported device info utilities (11 files)
-import com.mobeetest.worker.activities.main.pages.composables.device.DeviceInfoHelpers.deviceInfoFieldBackground
-import com.mobeetest.worker.activities.main.pages.composables.device.DeviceInfoModels.DeviceInfoItem
-import com.mobeetest.worker.activities.main.pages.composables.device.DeviceInfoSectionBuilder.buildDeviceInfoSections
-import com.mobeetest.worker.activities.main.pages.composables.device.DeviceInfoSectionBuilder.countFieldsForSection
-import com.mobeetest.worker.activities.main.pages.composables.device.ShareTextBuilder.buildSectionShareText
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.DeviceInfoHelpers.deviceInfoFieldBackground
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.DeviceInfoModels.DeviceInfoItem
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.DeviceInfoSectionBuilder.buildDeviceInfoSections
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.DeviceInfoSectionBuilder.countFieldsForSection
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.ShareTextBuilder.buildSectionShareText
 
 // Imported base row components (5 files)
-import com.mobeetest.worker.activities.main.pages.composables.device.DeviceInfoBooleanFieldRow
-import com.mobeetest.worker.activities.main.pages.composables.device.DeviceInfoKeyValueListField
-import com.mobeetest.worker.activities.main.pages.composables.device.DeviceInfoPercentageFieldRow
-import com.mobeetest.worker.activities.main.pages.composables.device.DeviceInfoTextListField
-import com.mobeetest.worker.activities.main.pages.composables.device.DeviceInfoValueRow
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.DeviceInfoBooleanFieldRow
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.DeviceInfoKeyValueListField
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.DeviceInfoPercentageFieldRow
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.DeviceInfoTextListField
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.DeviceInfoValueRow
 
 // Imported section field composables (14 files)
-import com.mobeetest.worker.activities.main.pages.composables.device.BatterySectionFields
-import com.mobeetest.worker.activities.main.pages.composables.device.CamerasSectionFields
-import com.mobeetest.worker.activities.main.pages.composables.device.CpuSectionFields
-import com.mobeetest.worker.activities.main.pages.composables.device.GpuSectionFields
-import com.mobeetest.worker.activities.main.pages.composables.device.MobeetestSectionFields
-import com.mobeetest.worker.activities.main.pages.composables.device.OsSectionFields
-import com.mobeetest.worker.activities.main.pages.composables.device.RamSectionFields
-import com.mobeetest.worker.activities.main.pages.composables.device.ScreenSectionFields
-import com.mobeetest.worker.activities.main.pages.composables.device.SoundCardsSectionFields
-import com.mobeetest.worker.activities.main.pages.composables.device.StorageSectionFields
-import com.mobeetest.worker.activities.main.pages.composables.device.UsbSectionFields
-import com.mobeetest.worker.activities.main.pages.composables.device.WeatherSectionFields
-import com.mobeetest.worker.activities.main.pages.composables.device.WirelessSectionFields
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.BatterySectionFields
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.CamerasSectionFields
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.CpuSectionFields
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.GpuSectionFields
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.MobeetestSectionFields
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.OsSectionFields
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.RamSectionFields
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.ScreenSectionFields
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.SoundCardsSectionFields
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.StorageSectionFields
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.UsbSectionFields
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.WeatherSectionFields
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.WirelessSectionFields
 
 // Imported date/time components (3 files)
-import com.mobeetest.worker.activities.main.pages.composables.device.DateHeaderRow
-import com.mobeetest.worker.activities.main.pages.composables.device.DeviceInfoDateFieldRow
-import com.mobeetest.worker.activities.main.pages.composables.device.DeviceInfoDateTimeFieldRow
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.DateHeaderRow
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.DeviceInfoDateFieldRow
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.DeviceInfoDateTimeFieldRow
 
 // Imported visualizations (7 files)
-import com.mobeetest.worker.activities.main.pages.composables.device.DynamicValueColumnTable
-import com.mobeetest.worker.activities.main.pages.composables.device.MiniAnalogClock
-import com.mobeetest.worker.activities.main.pages.composables.device.MiniMonthCalendar
-import com.mobeetest.worker.activities.main.pages.composables.device.MiniUVGauge
-import com.mobeetest.worker.activities.main.pages.composables.device.MiniVisibilityBar
-import com.mobeetest.worker.activities.main.pages.composables.device.ThermometerMini
-import com.mobeetest.worker.activities.main.pages.composables.device.WindCompassMini
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.DynamicValueColumnTable
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.MiniAnalogClock
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.MiniMonthCalendar
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.MiniUVGauge
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.MiniVisibilityBar
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.ThermometerMini
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.WindCompassMini
 
 // Imported weather components (4 files)
-import com.mobeetest.worker.activities.main.pages.composables.device.WeatherAlignedFieldsGroup
-import com.mobeetest.worker.activities.main.pages.composables.device.WeatherAlignedHumidityRow
-import com.mobeetest.worker.activities.main.pages.composables.device.WeatherAlignedTemperatureRow
-import com.mobeetest.worker.activities.main.pages.composables.device.WeatherAlignedWindRow
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.WeatherAlignedFieldsGroup
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.WeatherAlignedHumidityRow
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.WeatherAlignedTemperatureRow
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.WeatherAlignedWindRow
 
 // Imported main UI components (6 files)
-import com.mobeetest.worker.activities.main.pages.composables.device.BottomLogos
-import com.mobeetest.worker.activities.main.pages.composables.device.CpuInfoSpecialThanksRow
-import com.mobeetest.worker.activities.main.pages.composables.device.RightSideIcons
-import com.mobeetest.worker.activities.main.pages.composables.device.VerticalScrollbar
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.BottomLogos
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.CpuInfoSpecialThanksRow
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.RightSideIcons
+import com.mobeetest.worker.ui.activities.main.pages.composables.device.VerticalScrollbar
 
 /**
  * Main Device Info Screen - Refactored

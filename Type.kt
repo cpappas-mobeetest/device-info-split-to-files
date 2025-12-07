@@ -68,3 +68,90 @@ val mainScaffoldTopBarTitleTextStyle = TextStyle(
     textAlign = TextAlign.Center
 )
 
+// ===============================
+// DEVICE INFO SCREEN TYPOGRAPHY
+// ===============================
+
+// Section headers
+val deviceInfoCategoryHeaderTextStyle = TextStyle(
+    fontFamily = FontFamily.Default,
+    fontWeight = FontWeight.Bold,
+    fontSize = 16.sp,
+    lineHeight = 22.sp
+)
+
+val deviceInfoSubCategoryHeaderTextStyle = TextStyle(
+    fontFamily = FontFamily.Default,
+    fontWeight = FontWeight.SemiBold,
+    fontSize = 15.sp,
+    lineHeight = 21.sp
+)
+
+// Field labels and values
+val deviceInfoFieldLabelTextStyle = TextStyle(
+    fontFamily = FontFamily.Default,
+    fontWeight = FontWeight.Normal,
+    fontSize = 14.sp,
+    lineHeight = 20.sp
+)
+
+val deviceInfoFieldValueTextStyle = TextStyle(
+    fontFamily = FontFamily.Default,
+    fontWeight = FontWeight.Medium,
+    fontSize = 14.sp,
+    lineHeight = 20.sp
+)
+
+val deviceInfoFieldIndexTextStyle = TextStyle(
+    fontFamily = FontFamily.Default,
+    fontWeight = FontWeight.Normal,
+    fontSize = 12.sp,
+    lineHeight = 16.sp
+)
+
+// Table typography
+val deviceInfoTableHeaderTextStyle = TextStyle(
+    fontFamily = FontFamily.Default,
+    fontWeight = FontWeight.SemiBold,
+    fontSize = 12.sp,
+    lineHeight = 16.sp
+)
+
+val deviceInfoTableCellTextStyle = TextStyle(
+    fontFamily = FontFamily.Default,
+    fontWeight = FontWeight.Normal,
+    fontSize = 13.sp,
+    lineHeight = 18.sp
+)
+
+// Info messages
+val deviceInfoInfoDescriptionTextStyle = TextStyle(
+    fontFamily = FontFamily.Default,
+    fontWeight = FontWeight.Normal,
+    fontSize = 12.sp,
+    lineHeight = 16.sp
+)
+
+val deviceInfoCopiedMessageTextStyle = TextStyle(
+    fontFamily = FontFamily.Default,
+    fontWeight = FontWeight.Medium,
+    fontSize = 11.sp,
+    lineHeight = 15.sp
+)
+
+// Buttons
+val deviceInfoButtonTextStyle = TextStyle(
+    fontFamily = FontFamily.Default,
+    fontWeight = FontWeight.Medium,
+    fontSize = 13.sp,
+    lineHeight = 18.sp
+)
+
+// Special content
+val deviceInfoSpecialThanksTextStyle = TextStyle(
+    fontFamily = FontFamily.Default,
+    fontWeight = FontWeight.Normal,
+    fontSize = 14.sp,
+    lineHeight = 20.sp
+)
+

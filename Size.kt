@@ -72,3 +72,65 @@ val mainDrawerVerticalPadding = 12.dp
 val mainDrawerSheetTopPadding = 57.dp
 val mainDrawerSheetBottomPadding = 58.dp
 
+// ===============================
+// DEVICE INFO SCREEN SIZES
+// ===============================
+
+// Layout paddings
+val deviceInfoHorizontalPadding = 12.dp
+val deviceInfoScrollbarExtraPadding = 8.dp
+
+// Column widths
+val deviceInfoFieldIndexColumnWidth = 22.dp
+val deviceInfoTableIndexColumnWidth = 40.dp
+
+// Common spacing
+val deviceInfoSpacing0 = 0.dp
+val deviceInfoSpacing1 = 1.dp
+val deviceInfoSpacing2 = 2.dp
+val deviceInfoSpacing3 = 3.dp
+val deviceInfoSpacing4 = 4.dp
+val deviceInfoSpacing5 = 5.dp
+val deviceInfoSpacing6 = 6.dp
+val deviceInfoSpacing8 = 8.dp
+val deviceInfoSpacing10 = 10.dp
+val deviceInfoSpacing12 = 12.dp
+val deviceInfoSpacing16 = 16.dp
+val deviceInfoSpacing18 = 18.dp
+val deviceInfoSpacing22 = 22.dp
+val deviceInfoSpacing24 = 24.dp
+val deviceInfoSpacing25 = 25.dp
+val deviceInfoSpacing26 = 26.dp
+val deviceInfoSpacing28 = 28.dp
+val deviceInfoSpacing29 = 29.dp
+val deviceInfoSpacing30 = 30.dp
+val deviceInfoSpacing40 = 40.dp
+val deviceInfoSpacing48 = 48.dp
+val deviceInfoSpacing64 = 64.dp
+val deviceInfoSpacing80 = 80.dp
+val deviceInfoSpacing88 = 88.dp
+val deviceInfoSpacing96 = 96.dp
+
+// Corner radius
+val deviceInfoCornerRadius8 = 8.dp
+val deviceInfoCornerRadius10 = 10.dp
+
+// Border thickness
+val deviceInfoBorderThickness = 1.dp
+val deviceInfoDividerThickness = 0.5.dp
+val deviceInfoTableDividerThickness = 0.25.dp
+
+// Icon sizes
+val deviceInfoIconSize24 = 24.dp
+val deviceInfoIconSize26 = 26.dp
+val deviceInfoIconSize28 = 28.dp
+val deviceInfoIconSize29 = 29.dp
+val deviceInfoIconSize80 = 80.dp
+
+// Scrollbar
+val deviceInfoScrollbarThickness = 4.dp
+
+// Donut visualization
+val deviceInfoDonutStrokeWidth = 5.dp
+val deviceInfoDonutSize = 96.dp
+

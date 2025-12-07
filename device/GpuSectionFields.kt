@@ -1,6 +1,8 @@
 package com.mobeetest.worker.activities.main.pages.composables.device
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
+import com.mobeetest.worker.R
 import com.mobeetest.worker.data.model.device.GpuInfo
 
 @Composable
@@ -10,14 +12,14 @@ fun GpuSectionFields(gpu: GpuInfo, iconRes: Int) {
     DeviceInfoValueRow(
         index = index++,
         iconRes = iconRes,
-        label = "Vendor",
+        label = stringResource(R.string.device_info_label_vendor),
         value = gpu.vendor,
         infoDescription = "GPU vendor string as reported by the graphics driver."
     )
     DeviceInfoValueRow(
         index = index++,
         iconRes = iconRes,
-        label = "Renderer",
+        label = stringResource(R.string.device_info_label_renderer),
         value = gpu.renderer,
         infoDescription = "Renderer name that usually includes the GPU model and driver."
     )
@@ -25,7 +27,7 @@ fun GpuSectionFields(gpu: GpuInfo, iconRes: Int) {
         DeviceInfoValueRow(
             index = index++,
             iconRes = iconRes,
-            label = "OpenGL ES",
+            label = stringResource(R.string.device_info_label_opengl_es),
             value = gpu.glesVersion,
             infoDescription = "Highest supported OpenGL ES version for this device."
         )
@@ -34,20 +36,19 @@ fun GpuSectionFields(gpu: GpuInfo, iconRes: Int) {
         DeviceInfoValueRow(
             index = index++,
             iconRes = iconRes,
-            label = "Vulkan",
+            label = stringResource(R.string.device_info_label_vulkan),
             value = gpu.vulkanVersion,
             infoDescription = "Highest supported Vulkan API version for this device."
         )
     }
 
-    // Note: DeviceInfoTextListField needs to be created separately
-    // DeviceInfoTextListField(
-    //     index = index,
-    //     iconRes = iconRes,
-    //     label = "Extensions",
-    //     values = gpu.extensions,
-    //     maxPreviewItems = 6,
-    //     infoDescription = "List of GPU driver extensions that are available to graphics applications.",
-    //     showBottomDivider = false
-    // )
+    DeviceInfoTextListField(
+        index = index,
+        iconRes = iconRes,
+        label = stringResource(R.string.device_info_label_extensions),
+        values = gpu.extensions,
+        maxPreviewItems = 6,
+        infoDescription = "List of GPU driver extensions that are available to graphics applications.",
+        showBottomDivider = false
+    )
 }

@@ -489,3 +489,19 @@
     <!-- ========== DeviceInfoScreen end ========== -->
 
 </resources>
+    
+    <!-- Storage labels -->
+    <string name="device_info_label_storage_volumes">Storage volumes</string>
+    <string name="device_info_label_storage_path">Path</string>
+    <string name="device_info_label_storage_total">Total</string>
+    <string name="device_info_label_storage_used">Used</string>
+    <string name="device_info_label_storage_used_space">Used space</string>
+    
+    <!-- Storage labels -->
+    <string name="device_info_label_storage_volumes">Storage volumes</string>
+    <string name="device_info_label_storage_path">Path</string>
+    <string name="device_info_label_storage_total">Total</string>
+    <string name="device_info_label_storage_used">Used</string>
+    <string name="device_info_label_storage_used_space">Used space</string>
+
+</resources>

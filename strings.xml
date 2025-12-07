@@ -479,6 +479,7 @@
 
     <!-- Table headers -->
     <string name="device_info_table_header_index">#</string>
+    <string name="device_info_table_header_name">Name</string>
     <string name="device_info_table_header_value">Value</string>
 
     <!-- Special thanks -->

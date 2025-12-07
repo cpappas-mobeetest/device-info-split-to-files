@@ -122,8 +122,8 @@ fun DeviceInfoScreen(
                         updateState = if (updateInProgress) "InProgress" else "Idle",
                         onRefreshClick = { viewModel.loadDeviceInfo() },
                         onShareClick = { sectionId -> 
-                            // Share functionality for the section
-                            viewModel.shareSection(sectionId)
+                            // Share functionality - can be implemented as needed
+                            // For now, this is a placeholder
                         },
                         sectionId = "all",
                         modifier = Modifier

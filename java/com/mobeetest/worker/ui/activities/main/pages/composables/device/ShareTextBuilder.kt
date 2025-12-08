@@ -239,7 +239,66 @@ internal fun buildSectionShareText(
         "hardware" -> {
             buildString {
                 appendLine("Hardware")
-                appendLine(item.description)
+                appendLine()
+                
+                // Battery subsection
+                val b = deviceInfo.hardware.battery
+                appendLine("━━━ Battery ━━━")
+                val levelStr = b.levelPercent?.let { "$it %" } ?: "Unknown"
+                appendLine("Level: $levelStr")
+                appendLine("Status: ${describeBatteryStatus(b.status)}")
+                appendLine("Power source: ${describeChargerConnection(b.chargerConnection)}")
+                appendLine("Health: ${describeBatteryHealth(b.health)}")
+                b.temperatureC?.let {
+                    appendLine("Temperature: ${String.format(Locale.US, "%.1f °C", it)}")
+                }
+                val capacityStr = if (b.capacityMah > 0f) {
+                    "${b.capacityMah.toInt()} mAh"
+                } else {
+                    "Unknown"
+                }
+                appendLine("Capacity: $capacityStr")
+                appendLine("Technology: ${b.technology}")
+                appendLine()
+                
+                // Cameras subsection
+                val cams = deviceInfo.hardware.cameras
+                appendLine("━━━ Cameras ━━━")
+                appendLine("Total: ${cams.size}")
+                if (cams.isNotEmpty()) {
+                    appendLine("Available cameras:")
+                    cams.forEachIndexed { index, cam ->
+                        appendLine("  • Camera $index: ${cam.type} (${cam.orientation}°)")
+                    }
+                }
+                appendLine()
+                
+                // Wireless subsection
+                val w = deviceInfo.hardware.wireless
+                appendLine("━━━ Wireless ━━━")
+                appendLine("Bluetooth: ${boolYesNo(w.bluetooth)}")
+                appendLine("Bluetooth LE: ${boolYesNo(w.bluetoothLE)}")
+                appendLine("GPS: ${boolYesNo(w.gps)}")
+                appendLine("NFC: ${boolYesNo(w.nfc)}")
+                appendLine("NFC card emulation: ${boolYesNo(w.nfcCardEmulation)}")
+                appendLine("Wi-Fi: ${boolYesNo(w.wifi)}")
+                appendLine("Wi-Fi Aware: ${boolYesNo(w.wifiAware)}")
+                appendLine("Wi-Fi Direct: ${boolYesNo(w.wifiDirect)}")
+                appendLine("Wi-Fi Passpoint: ${boolYesNo(w.wifiPasspoint)}")
+                appendLine("Wi-Fi 5 GHz band: ${boolYesNo(w.wifi5Ghz)}")
+                appendLine("Wi-Fi P2P: ${boolYesNo(w.wifiP2p)}")
+                appendLine("IR emitter: ${boolYesNo(w.irEmitter)}")
+                appendLine()
+                
+                // USB subsection
+                val usb = deviceInfo.hardware.usb
+                appendLine("━━━ USB ━━━")
+                appendLine("USB OTG / Host support: ${boolYesNo(usb.otg)}")
+                appendLine()
+                
+                // Sound cards subsection
+                appendLine("━━━ Sound cards ━━━")
+                appendLine("Number of sound cards: ${deviceInfo.hardware.soundCardCount}")
             }.trim()
         }
 
@@ -251,6 +310,26 @@ internal fun buildSectionShareText(
                 appendLine("Weather")
                 map.forEach { (k, v) ->
                     appendLine("$k: $v")
+                }
+            }.trim()
+        }
+
+        "mobeetest" -> {
+            val m = deviceInfo.mobeetestInfo
+            val rows = buildMobeetestRows(m)
+            
+            buildString {
+                appendLine("Mobeetest")
+                rows.forEach { row ->
+                    appendLine("${row.label}: ${row.value}")
+                }
+                
+                // Add runtime stats if available
+                m.ramPercentageUsage?.let { ram ->
+                    appendLine("RAM usage: ${String.format(Locale.US, "%.1f%%", ram)}")
+                }
+                m.cpuPercentageUsage?.let { cpu ->
+                    appendLine("CPU usage: ${String.format(Locale.US, "%.1f%%", cpu)}")
                 }
             }.trim()
         }

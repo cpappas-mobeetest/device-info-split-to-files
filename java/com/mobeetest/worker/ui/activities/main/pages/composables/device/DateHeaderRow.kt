@@ -24,7 +24,6 @@ import com.mobeetest.worker.R
 import com.mobeetest.worker.ui.theme.*
 import kotlinx.coroutines.delay
 
-@Suppress("unused")
 @Composable
 fun DateHeaderRow(
     index: Int,

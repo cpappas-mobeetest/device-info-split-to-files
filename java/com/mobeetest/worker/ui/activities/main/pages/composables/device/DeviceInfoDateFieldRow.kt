@@ -174,7 +174,6 @@ fun DeviceInfoDateFieldRow(
     LaunchedEffect(showCopied) {
         if (showCopied) {
             delay(1_500)
-            @Suppress("ASSIGNED_VALUE_IS_NEVER_READ")
             showCopied = false
         }
     }

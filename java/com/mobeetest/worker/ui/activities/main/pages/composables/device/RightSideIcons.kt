@@ -22,8 +22,6 @@ import com.mobeetest.worker.R
 fun RightSideIcons(
     updateState: String,
     onRefreshClick: () -> Unit,
-    onShareClick: (String) -> Unit,
-    sectionId: String,
     modifier: Modifier = Modifier
 ) {
     val iconSize = 26.dp

@@ -26,7 +26,7 @@ fun ThermometerMini(
     val fraction = ((clamped - minC) / (maxC - minC)).coerceIn(0f, 1f)
 
     val outline = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.8f)
-    val mercury = temperatureColor(tempC).invoke()
+    val mercury = temperatureColor(tempC)
     val tick = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.25f)
     val currentTempColor = Color(0xFF1565C0) // Blue
     val scaleLabelColor = Color.Black

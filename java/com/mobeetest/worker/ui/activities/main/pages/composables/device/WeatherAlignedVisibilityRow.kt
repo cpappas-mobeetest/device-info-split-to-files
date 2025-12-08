@@ -29,8 +29,6 @@ fun WeatherAlignedVisibilityRow(
     label: String,
     visibilityKm: Double,
     visMiles: Double,
-    textWidth: Dp,
-    visualWidth: Dp,
     infoDescription: String?,
     showBottomDivider: Boolean = true
 ) {
@@ -48,18 +46,19 @@ fun WeatherAlignedVisibilityRow(
             .fillMaxWidth()
             .background(bgColor)
     ) {
-        // First line: index, icon, title, value, spacer, info, copy
+        // First line: index, icon, title with bold value, spacer, info, copy
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = deviceInfoSpacing8, end = deviceInfoSpacing12, top = deviceInfoSpacing8, bottom = deviceInfoSpacing4),
+                .padding(start = deviceInfoSpacing8, end = deviceInfoSpacing12, top = deviceInfoSpacing6, bottom = deviceInfoSpacing6),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
                 text = "$index.",
-                style = deviceInfoFieldIndexTextStyle,
+                style = MaterialTheme.typography.labelMedium,
                 color = MaterialTheme.colorScheme.onSurface,
-                modifier = Modifier.width(deviceInfoFieldIndexWidth)
+                modifier = Modifier.width(deviceInfoFieldIndexColumnWidth),
+                textAlign = androidx.compose.ui.text.style.TextAlign.End
             )
 
             Icon(
@@ -72,20 +71,25 @@ fun WeatherAlignedVisibilityRow(
             )
 
             Text(
-                text = label,
-                style = deviceInfoFieldLabelTextStyle,
-                color = MaterialTheme.colorScheme.onSurface
+                text = androidx.compose.ui.text.buildAnnotatedString {
+                    append(label)
+                    append(": ")
+                    withStyle(
+                        androidx.compose.ui.text.SpanStyle(
+                            fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.primary
+                        )
+                    ) {
+                        append(valueText)
+                    }
+                },
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurface,
+                modifier = Modifier.weight(1f),
+                maxLines = 6,
+                overflow = androidx.compose.ui.text.style.TextOverflow.Clip
             )
 
-            Spacer(modifier = Modifier.width(deviceInfoSpacing4))
-
-            Text(
-                text = valueText,
-                style = deviceInfoFieldValueTextStyle,
-                color = MaterialTheme.colorScheme.onSurface
-            )
-
-            Spacer(modifier = Modifier.weight(1f))
 
             Row(
                 horizontalArrangement = Arrangement.spacedBy(0.dp),

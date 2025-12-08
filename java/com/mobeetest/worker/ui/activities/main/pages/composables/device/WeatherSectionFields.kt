@@ -110,8 +110,6 @@ fun WeatherSectionFields(weather: WeatherInfo, iconRes: Int) {
         label = stringResource(R.string.device_info_label_weather_visibility),
         visibilityKm = weather.current?.visKm ?: 0.0,
         visMiles = weather.current?.visMiles ?: 0.0,
-        textWidth = 120.dp,
-        visualWidth = 80.dp,
         infoDescription = "Visibility distance in kilometers and miles with bar visualization.",
         showBottomDivider = false
     )

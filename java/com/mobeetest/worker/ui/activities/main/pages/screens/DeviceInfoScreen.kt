@@ -4,7 +4,9 @@ package com.mobeetest.worker.ui.activities.main.pages.screens
 
 // Android & Compose core imports
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -264,6 +266,12 @@ private fun DeviceInfoSectionItem(
                 width = 1.dp,
                 color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.8f),
                 shape = RoundedCornerShape(10.dp)
+            )
+            .animateContentSize(
+                animationSpec = spring(
+                    dampingRatio = 0.8f,
+                    stiffness = 300f
+                )
             )
     ) {
         Column(

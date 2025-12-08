@@ -48,10 +48,11 @@ fun WeatherAlignedVisibilityRow(
             .fillMaxWidth()
             .background(bgColor)
     ) {
+        // First line: index, icon, title, value, spacer, info, copy
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = deviceInfoSpacing8, end = deviceInfoSpacing12, top = deviceInfoSpacing8, bottom = deviceInfoSpacing8),
+                .padding(start = deviceInfoSpacing8, end = deviceInfoSpacing12, top = deviceInfoSpacing8, bottom = deviceInfoSpacing4),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
@@ -70,35 +71,19 @@ fun WeatherAlignedVisibilityRow(
                     .padding(start = deviceInfoSpacing8, end = deviceInfoSpacing4)
             )
 
-            Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = label,
-                    style = deviceInfoFieldLabelTextStyle,
-                    color = MaterialTheme.colorScheme.onSurface
-                )
+            Text(
+                text = label,
+                style = deviceInfoFieldLabelTextStyle,
+                color = MaterialTheme.colorScheme.onSurface
+            )
 
-                Spacer(modifier = Modifier.height(deviceInfoSpacing4))
+            Spacer(modifier = Modifier.width(deviceInfoSpacing4))
 
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text(
-                        text = valueText,
-                        style = deviceInfoFieldValueTextStyle,
-                        color = MaterialTheme.colorScheme.onSurface,
-                        modifier = Modifier.width(textWidth)
-                    )
-
-                    Spacer(modifier = Modifier.width(deviceInfoSpacing8))
-
-                    MiniVisibilityBar(
-                        visibilityKm = visibilityKm,
-                        modifier = Modifier.width(visualWidth)
-                    )
-                }
-            }
+            Text(
+                text = valueText,
+                style = deviceInfoFieldValueTextStyle,
+                color = MaterialTheme.colorScheme.onSurface
+            )
 
             Spacer(modifier = Modifier.weight(1f))
 
@@ -133,6 +118,19 @@ fun WeatherAlignedVisibilityRow(
                     )
                 }
             }
+        }
+
+        // Second line: MiniVisibilityBar
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = deviceInfoSpacing8, end = deviceInfoSpacing12, bottom = deviceInfoSpacing8),
+            contentAlignment = Alignment.Center
+        ) {
+            MiniVisibilityBar(
+                visibilityKm = visibilityKm,
+                modifier = Modifier.fillMaxWidth(0.8f)
+            )
         }
 
         AnimatedVisibility(visible = showCopied) {

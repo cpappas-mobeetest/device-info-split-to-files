@@ -2,13 +2,9 @@ package com.mobeetest.worker.ui.activities.main.pages.composables.device
 
 import com.mobeetest.worker.ui.theme.*
 
-import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import com.mobeetest.worker.R
 
 @Composable
@@ -96,20 +92,41 @@ fun WeatherSectionFields(weatherJson: String?, iconRes: Int) {
         infoDescription = "Current weather condition description."
     )
 
-    // 6-9: Use WeatherAlignedFieldsGroup for Temperature, Feels like, Wind, Humidity
-    WeatherAlignedFieldsGroup(
-        startIndex = index,
-        temperatureC = parsed.temperatureC,
-        feelsLikeC = parsed.feelsLikeC,
-        windKph = parsed.windKph,
-        windDir = parsed.windDir,
-        humidity = parsed.humidity,
-        temperatureIconRes = iconRes,
-        feelsLikeIconRes = iconRes,
-        windIconRes = iconRes,
-        humidityIconRes = iconRes
+    // 6. Temperature (simple value row)
+    DeviceInfoValueRow(
+        index = index++,
+        iconRes = iconRes,
+        label = "Temperature",
+        value = map["Temperature"] ?: stringResource(R.string.device_info_unknown),
+        infoDescription = "Current air temperature near the surface."
     )
-    index += 4
+
+    // 7. Feels like (simple value row)
+    DeviceInfoValueRow(
+        index = index++,
+        iconRes = iconRes,
+        label = "Feels like",
+        value = map["Feels like"] ?: stringResource(R.string.device_info_unknown),
+        infoDescription = "Perceived temperature taking into account wind and humidity."
+    )
+
+    // 8. Wind
+    DeviceInfoValueRow(
+        index = index++,
+        iconRes = iconRes,
+        label = "Wind",
+        value = map["Wind"] ?: stringResource(R.string.device_info_unknown),
+        infoDescription = "Wind speed in kilometers per hour and main wind direction."
+    )
+
+    // 9. Humidity (simple value row)
+    DeviceInfoValueRow(
+        index = index++,
+        iconRes = iconRes,
+        label = "Humidity",
+        value = map["Humidity"] ?: stringResource(R.string.device_info_unknown),
+        infoDescription = "Relative humidity of the air, expressed as a percentage."
+    )
 
     // 10. Pressure
     DeviceInfoValueRow(
@@ -138,43 +155,22 @@ fun WeatherSectionFields(weatherJson: String?, iconRes: Int) {
         infoDescription = "Cloud cover as a percentage of sky coverage."
     )
 
-    // 13. UV index with mini gauge visual
-    Column(modifier = Modifier.fillMaxWidth()) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = deviceInfoSpacing8, vertical = deviceInfoSpacing4),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            DeviceInfoValueRow(
-                index = index++,
-                iconRes = iconRes,
-                label = stringResource(R.string.device_info_label_weather_uv_index),
-                value = parsed.uvIndex?.toString() ?: stringResource(R.string.device_info_unknown),
-                infoDescription = "UV index indicating strength of ultraviolet radiation${parsed.uvIndex?.let { uv -> " (${uvBucket(uv).name.lowercase().replace('_', ' ')})" } ?: ""}."
-            )
-            Spacer(modifier = Modifier.width(deviceInfoSpacing8))
-            MiniUVGauge(uvIndex = parsed.uvIndex, modifier = Modifier.size(deviceInfoIconSize28))
-        }
-    }
+    // 13. UV index (simple value)
+    DeviceInfoValueRow(
+        index = index++,
+        iconRes = iconRes,
+        label = stringResource(R.string.device_info_label_weather_uv_index),
+        value = parsed.uvIndex?.toString() ?: stringResource(R.string.device_info_unknown),
+        infoDescription = "UV index indicating strength of ultraviolet radiation."
+    )
 
-    // 14. Visibility with mini bar visual (last row)
-    Column(modifier = Modifier.fillMaxWidth()) {
-        DeviceInfoValueRow(
-            index = index,
-            iconRes = iconRes,
-            label = stringResource(R.string.device_info_label_weather_visibility),
-            value = formatWeatherInfo(weather?.current?.visKm, weather?.current?.visMiles, "km", "mi"),
-            infoDescription = "Visibility distance in kilometers and miles.",
-            showBottomDivider = false
-        )
-        Spacer(modifier = Modifier.height(deviceInfoSpacing4))
-        MiniVisibilityBar(
-            visibilityKm = parsed.visibilityKm,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = deviceInfoSpacing12)
-        )
-    }
+    // 14. Visibility (last row, simple value)
+    DeviceInfoValueRow(
+        index = index,
+        iconRes = iconRes,
+        label = stringResource(R.string.device_info_label_weather_visibility),
+        value = formatWeatherInfo(weather?.current?.visKm, weather?.current?.visMiles, "km", "mi"),
+        infoDescription = "Visibility distance in kilometers and miles.",
+        showBottomDivider = false
+    )
 }

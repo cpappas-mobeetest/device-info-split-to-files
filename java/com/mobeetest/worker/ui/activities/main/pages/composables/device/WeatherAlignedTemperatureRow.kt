@@ -12,10 +12,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalClipboardManager
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.mobeetest.worker.R
@@ -32,7 +36,6 @@ fun WeatherAlignedTemperatureRow(
     visualWidth: Dp,
     infoDescription: String?
 ) {
-    val context = LocalContext.current
     val clipboardManager = LocalClipboardManager.current
     val bgColor = deviceInfoFieldBackground(index)
 
@@ -49,51 +52,62 @@ fun WeatherAlignedTemperatureRow(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = deviceInfoSpacing8, end = deviceInfoSpacing12, top = deviceInfoSpacing8, bottom = deviceInfoSpacing8),
+                .padding(start = 8.dp, end = 12.dp, top = 8.dp, bottom = 8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
                 text = "$index.",
-                style = deviceInfoFieldIndexTextStyle,
-                color = MaterialTheme.colorScheme.onSurface,
-                modifier = Modifier.width(deviceInfoFieldIndexWidth)
+                style = MaterialTheme.typography.labelMedium,
+                modifier = Modifier.width(deviceInfoFieldIndexWidth),
+                textAlign = TextAlign.End
             )
 
             Icon(
                 painter = painterResource(id = iconRes),
                 contentDescription = null,
-                tint = Color.Unspecified,
                 modifier = Modifier
-                    .size(deviceInfoIconSize29)
-                    .padding(start = deviceInfoSpacing8, end = deviceInfoSpacing4)
+                    .size(29.dp)
+                    .padding(start = 8.dp, end = 4.dp),
+                tint = Color.Unspecified
             )
 
-            Column(modifier = Modifier.weight(1f)) {
+            Box(
+                modifier = Modifier.width(textWidth),
+                contentAlignment = Alignment.CenterStart
+            ) {
                 Text(
-                    text = label,
-                    style = deviceInfoFieldLabelTextStyle,
-                    color = MaterialTheme.colorScheme.onSurface
+                    text = buildAnnotatedString {
+                        append(label)
+                        append(": ")
+                        withStyle(
+                            SpanStyle(
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.primary
+                            )
+                        ) {
+                            append(valueText)
+                        }
+                    },
+                    style = MaterialTheme.typography.bodyMedium,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
                 )
+            }
 
-                Spacer(modifier = Modifier.height(deviceInfoSpacing4))
+            Spacer(modifier = Modifier.weight(1f))
 
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
+            Box(
+                modifier = Modifier
+                    .width(visualWidth)
+                    .height(64.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Box(
+                    modifier = Modifier.size(width = 26.dp, height = 64.dp)
                 ) {
-                    Text(
-                        text = valueText,
-                        style = deviceInfoFieldValueTextStyle,
-                        color = MaterialTheme.colorScheme.onSurface,
-                        modifier = Modifier.width(textWidth)
-                    )
-
-                    Spacer(modifier = Modifier.width(deviceInfoSpacing8))
-
                     ThermometerMini(
                         temperatureC = temperatureC,
-                        modifier = Modifier.width(visualWidth)
+                        modifier = Modifier.fillMaxSize()
                     )
                 }
             }
@@ -107,12 +121,15 @@ fun WeatherAlignedTemperatureRow(
                 if (infoDescription != null) {
                     IconButton(
                         onClick = { showInfo = !showInfo },
-                        modifier = Modifier.size(deviceInfoIconSize24).padding(end = 2.dp)
+                        modifier = Modifier
+                            .size(24.dp)
+                            .padding(end = 2.dp)
                     ) {
                         Icon(
                             painter = painterResource(id = R.drawable.information),
-                            contentDescription = context.getString(R.string.device_info_cd_info, label),
-                            tint = Color.Unspecified
+                            contentDescription = "Info $label",
+                            tint = Color.Unspecified,
+                            modifier = Modifier.size(24.dp)
                         )
                     }
                 }
@@ -122,12 +139,15 @@ fun WeatherAlignedTemperatureRow(
                         clipboardManager.setText(AnnotatedString("$index. $label: $valueText"))
                         showCopied = true
                     },
-                    modifier = Modifier.size(deviceInfoIconSize24).padding(start = 2.dp)
+                    modifier = Modifier
+                        .size(24.dp)
+                        .padding(start = 2.dp)
                 ) {
                     Icon(
                         painter = painterResource(R.drawable.copy),
-                        contentDescription = context.getString(R.string.device_info_cd_copy, label),
-                        tint = Color.Unspecified
+                        contentDescription = "Copy $label",
+                        tint = Color.Unspecified,
+                        modifier = Modifier.size(24.dp)
                     )
                 }
             }
@@ -137,12 +157,12 @@ fun WeatherAlignedTemperatureRow(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(start = deviceInfoSpacing8, end = deviceInfoSpacing12, bottom = 2.dp),
+                    .padding(start = 8.dp, end = 12.dp, bottom = 2.dp),
                 contentAlignment = Alignment.CenterEnd
             ) {
                 Text(
-                    text = stringResource(R.string.device_info_copied_to_clipboard),
-                    style = deviceInfoCopiedMessageTextStyle,
+                    text = "Copied to clipboard",
+                    style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.primary
                 )
             }
@@ -153,20 +173,20 @@ fun WeatherAlignedTemperatureRow(
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(start = deviceInfoSpacing12, end = deviceInfoSpacing12, bottom = deviceInfoSpacing4)
+                        .padding(start = 12.dp, end = 12.dp, bottom = 4.dp)
                 ) {
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
                             .background(
                                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.9f),
-                                shape = androidx.compose.foundation.shape.RoundedCornerShape(deviceInfoCornerRadius8)
+                                shape = androidx.compose.foundation.shape.RoundedCornerShape(8.dp)
                             )
-                            .padding(horizontal = deviceInfoSpacing10, vertical = deviceInfoSpacing6)
+                            .padding(horizontal = 10.dp, vertical = 6.dp)
                     ) {
                         Text(
                             text = infoDescription,
-                            style = deviceInfoInfoDescriptionTextStyle,
+                            style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.surface
                         )
                     }

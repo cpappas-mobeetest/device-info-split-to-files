@@ -73,7 +73,7 @@ fun BatterySectionFields(
             index = index++,
             iconRes = iconRes,
             label = "Temperature",
-            temperatureC = b.temperatureC,
+            temperatureC = b.temperatureC.toDouble(),
             infoDescription = "Current battery temperature in degrees Celsius."
         )
     } else {

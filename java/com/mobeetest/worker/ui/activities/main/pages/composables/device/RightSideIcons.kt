@@ -57,11 +57,23 @@ fun RightSideIcons(
             items = icons,
             key = { it }
         ) { icon ->
+            // Store playUpdateGif state outside the when expression so it can be accessed in onClick
+            var playUpdateGif by rememberSaveable(key = "update_gif_${icon}") { mutableStateOf(false) }
+            
+            if (icon == R.drawable.update) {
+                LaunchedEffect(updateInProgress) {
+                    if (updateInProgress) playUpdateGif = true
+                }
+            }
+            
             ActionIconSlot(
                 touchSize = touchSize,
                 onClick = {
                     when (icon) {
-                        R.drawable.update -> onRefreshClick()
+                        R.drawable.update -> {
+                            playUpdateGif = true
+                            onRefreshClick()
+                        }
                         R.drawable.ftp -> { /* TODO */ }
                         R.drawable.json -> { /* TODO */ }
                         R.drawable.ms_word -> { /* TODO */ }
@@ -77,11 +89,6 @@ fun RightSideIcons(
             ) {
                 when (icon) {
                     R.drawable.update -> {
-                        var playUpdateGif by rememberSaveable { mutableStateOf(false) }
-
-                        LaunchedEffect(updateInProgress) {
-                            if (updateInProgress) playUpdateGif = true
-                        }
 
                         if (!playUpdateGif) {
                             Icon(

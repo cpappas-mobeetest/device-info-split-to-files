@@ -113,7 +113,6 @@ fun WeatherAlignedFieldsGroup(
         iconRes = R.drawable.weather_wind,
         label = stringResource(R.string.device_info_label_weather_wind),
         windKph = windKph ?: 0.0,
-        windMph = windMph ?: 0.0,
         windDir = windDir ?: "",
         textWidth = textWidth,
         visualWidth = visualWidth,

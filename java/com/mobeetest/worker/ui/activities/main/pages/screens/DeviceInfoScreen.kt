@@ -443,7 +443,9 @@ private fun DeviceInfoSectionItem(
                             "hardware_cameras" -> CamerasSectionFields(info.hardware.cameras, item.iconRes)
                             "hardware_wireless" -> WirelessSectionFields(info.hardware.wireless, item.iconRes)
                             "hardware_usb" -> UsbSectionFields(info.hardware.usb, item.iconRes)
-                            "weather" -> WeatherSectionFields(info.weatherInfo, item.iconRes)
+                            "weather" -> parseWeatherInfo(info.weatherInfo)?.let { weatherInfo ->
+                                WeatherSectionFields(weatherInfo, item.iconRes)
+                            }
                             "mobeetest" -> MobeetestSectionFields(
                                 mobeetest = info.mobeetestInfo,
                                 iconRes = R.drawable.ic_launcher_foreground

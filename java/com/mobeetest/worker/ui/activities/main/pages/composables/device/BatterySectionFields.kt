@@ -2,6 +2,8 @@ package com.mobeetest.worker.ui.activities.main.pages.composables.device
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.unit.dp
+import com.mobeetest.worker.R
 import com.mobeetest.worker.data.model.device.BatteryInfo
 import java.util.Locale
 
@@ -67,16 +69,26 @@ fun BatterySectionFields(
         infoDescription = "Battery health reported by the system (good, overheated, dead, etc.)."
     )
 
-    // 5. Temperature
-    val tempText = b.temperatureC?.let { String.format(Locale.US, "%.1f", it) } ?: "Unknown"
-    DeviceInfoValueRow(
-        index = index++,
-        iconRes = iconRes,
-        label = "Temperature",
-        value = tempText,
-        unit = if (b.temperatureC != null) "°C" else null,
-        infoDescription = "Current battery temperature in degrees Celsius."
-    )
+    // 5. Temperature - with thermometer visualization like Weather Temperature
+    b.temperatureC?.let { temp ->
+        WeatherAlignedTemperatureRow(
+            index = index++,
+            iconRes = iconForTemperature(temp.toDouble()),
+            label = "Temperature",
+            temperatureC = temp.toDouble(),
+            textWidth = 120.dp,
+            visualWidth = 80.dp,
+            infoDescription = "Current battery temperature in degrees Celsius."
+        )
+    } ?: run {
+        DeviceInfoValueRow(
+            index = index++,
+            iconRes = iconRes,
+            label = "Temperature",
+            value = "Unknown",
+            infoDescription = "Current battery temperature in degrees Celsius."
+        )
+    }
 
     // 6. Capacity
     val capacityText = if (b.capacityMah > 0f) b.capacityMah.toInt().toString() else "Unknown"
@@ -98,4 +110,30 @@ fun BatterySectionFields(
         infoDescription = "Battery chemistry string, for example Li-ion or Li-polymer.",
         showBottomDivider = false
     )
+}
+
+// Helper function to select temperature icon based on temperature value
+private fun iconForTemperature(tempC: Double?): Int {
+    return when (temperatureBucket(tempC)) {
+        TemperatureBucket.FREEZING -> R.drawable.weather_temp_freezing
+        TemperatureBucket.COLD -> R.drawable.weather_temp_cold
+        TemperatureBucket.MILD -> R.drawable.weather_temp_mild
+        TemperatureBucket.HOT -> R.drawable.weather_temp_hot
+    }
+}
+
+// Temperature classification enum
+private enum class TemperatureBucket {
+    FREEZING, COLD, MILD, HOT
+}
+
+// Classify temperature into buckets
+private fun temperatureBucket(tempC: Double?): TemperatureBucket {
+    return when {
+        tempC == null -> TemperatureBucket.MILD
+        tempC < 0.0 -> TemperatureBucket.FREEZING
+        tempC < 15.0 -> TemperatureBucket.COLD
+        tempC < 25.0 -> TemperatureBucket.MILD
+        else -> TemperatureBucket.HOT
+    }
 }

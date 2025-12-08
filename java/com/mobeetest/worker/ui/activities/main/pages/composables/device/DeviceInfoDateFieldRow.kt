@@ -25,6 +25,7 @@ fun DeviceInfoDateFieldRow(
     iconRes: Int,
     label: String,
     millis: Long,
+    valueOverride: String? = null,
     infoDescription: String? = null,
     showBottomDivider: Boolean = true
 ) {
@@ -34,7 +35,7 @@ fun DeviceInfoDateFieldRow(
     var showInfo by remember { mutableStateOf(false) }
     var showCopied by remember { mutableStateOf(false) }
 
-    val formattedDate = formatDate(millis)
+    val formattedDate = valueOverride ?: formatDate(millis)
 
     Row(
         modifier = Modifier

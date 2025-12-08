@@ -67,16 +67,25 @@ fun BatterySectionFields(
         infoDescription = "Battery health reported by the system (good, overheated, dead, etc.)."
     )
 
-    // 5. Temperature
-    val tempText = b.temperatureC?.let { String.format(Locale.US, "%.1f", it) } ?: "Unknown"
-    DeviceInfoValueRow(
-        index = index++,
-        iconRes = iconRes,
-        label = "Temperature",
-        value = tempText,
-        unit = if (b.temperatureC != null) "°C" else null,
-        infoDescription = "Current battery temperature in degrees Celsius."
-    )
+    // 5. Temperature with thermometer visual
+    if (b.temperatureC != null) {
+        BatteryTemperatureFieldRow(
+            index = index++,
+            iconRes = iconRes,
+            label = "Temperature",
+            temperatureC = b.temperatureC,
+            infoDescription = "Current battery temperature in degrees Celsius."
+        )
+    } else {
+        val tempText = "Unknown"
+        DeviceInfoValueRow(
+            index = index++,
+            iconRes = iconRes,
+            label = "Temperature",
+            value = tempText,
+            infoDescription = "Current battery temperature in degrees Celsius."
+        )
+    }
 
     // 6. Capacity
     val capacityText = if (b.capacityMah > 0f) b.capacityMah.toInt().toString() else "Unknown"

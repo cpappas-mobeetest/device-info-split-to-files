@@ -53,8 +53,23 @@ fun WeatherSectionFields(weather: WeatherInfo, iconRes: Int) {
         temperatureC = weather.current?.tempC ?: 0.0,
         textWidth = 150.dp,
         visualWidth = 80.dp,
+        thermometerHeight = 80.dp,
         infoDescription = "Current temperature in degrees Celsius with thermometer visualization."
     )
+
+    // Feels like temperature row with thermometer visualization
+    weather.current?.feelslikeC?.let { feelslikeTemp ->
+        WeatherAlignedTemperatureRow(
+            index = index++,
+            iconRes = iconRes,
+            label = "Feels like",
+            temperatureC = feelslikeTemp,
+            textWidth = 150.dp,
+            visualWidth = 80.dp,
+            thermometerHeight = 80.dp,
+            infoDescription = "Perceived temperature accounting for wind chill and humidity."
+        )
+    }
 
     // Humidity row with visualization
     WeatherAlignedHumidityRow(

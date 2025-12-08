@@ -77,6 +77,7 @@ fun BatterySectionFields(
             temperatureC = temp.toDouble(),
             textWidth = 150.dp,
             visualWidth = 80.dp,
+            thermometerHeight = 80.dp,
             infoDescription = "Current battery temperature in degrees Celsius."
         )
     } ?: run {

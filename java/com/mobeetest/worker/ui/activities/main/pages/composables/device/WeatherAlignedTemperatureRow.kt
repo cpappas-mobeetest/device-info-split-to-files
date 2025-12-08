@@ -34,7 +34,8 @@ fun WeatherAlignedTemperatureRow(
     temperatureC: Double,
     textWidth: Dp,
     visualWidth: Dp,
-    infoDescription: String?
+    infoDescription: String?,
+    thermometerHeight: Dp = 64.dp
 ) {
     val clipboardManager = LocalClipboardManager.current
     val bgColor = deviceInfoFieldBackground(index)
@@ -99,11 +100,11 @@ fun WeatherAlignedTemperatureRow(
             Box(
                 modifier = Modifier
                     .width(visualWidth)
-                    .height(64.dp),
+                    .height(thermometerHeight),
                 contentAlignment = Alignment.Center
             ) {
                 Box(
-                    modifier = Modifier.size(width = 26.dp, height = 64.dp)
+                    modifier = Modifier.size(width = 26.dp, height = thermometerHeight)
                 ) {
                     ThermometerMini(
                         temperatureC = temperatureC,

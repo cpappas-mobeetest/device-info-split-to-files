@@ -100,9 +100,8 @@ fun DeviceInfoPercentageFieldRow(
 
             Box(
                 modifier = Modifier
-                    .size(96.dp)
-                    .padding(horizontal = 4.dp, vertical = 10.dp)
-                    .aspectRatio(1f, matchHeightConstraintsFirst = true),
+                    .size(80.dp)
+                    .padding(horizontal = 4.dp, vertical = 8.dp),
                 contentAlignment = Alignment.Center
             ) {
                 PercentageDonut(
@@ -115,7 +114,7 @@ fun DeviceInfoPercentageFieldRow(
                 )
             }
 
-            Spacer(modifier = Modifier.weight(1f))
+            Spacer(modifier = Modifier.width(8.dp))
 
             if (infoDescription != null) {
                 IconButton(

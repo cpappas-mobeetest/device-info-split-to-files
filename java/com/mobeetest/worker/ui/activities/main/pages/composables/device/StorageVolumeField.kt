@@ -99,7 +99,7 @@ fun StorageVolumeField(
                 onClick = {
                     val copyText = buildString {
                         appendLine("$index. ${storage.label}")
-                        rows.forEachIndexed { i, (title, value, _) ->
+                        rows.forEachIndexed { i, (title, value) ->
                             appendLine("  ${index}.${i + 1}  $title: $value")
                         }
                     }.trim()

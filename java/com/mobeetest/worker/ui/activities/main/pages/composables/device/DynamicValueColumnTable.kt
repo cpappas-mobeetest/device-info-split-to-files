@@ -15,7 +15,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.mobeetest.worker.data.model.device.StorageInfo
-import com.mobeetest.worker.ui.theme.TableIndexColumnWidth
+import com.mobeetest.worker.ui.theme.deviceInfoTableIndexColumnWidth
 import java.util.Locale
 
 @Composable
@@ -57,7 +57,7 @@ fun DynamicValueColumnTable(
         }.map { it.measure(androidx.compose.ui.unit.Constraints()) }
 
         val maxValueWidthPx = valuePlaceables.maxOfOrNull { it.width } ?: 0
-        val numberWidthPx = with(density) { TableIndexColumnWidth.roundToPx() }
+        val numberWidthPx = with(density) { deviceInfoTableIndexColumnWidth.roundToPx() }
         val startPaddingPx = with(density) { 8.dp.roundToPx() }
         val endPaddingPx = with(density) { 8.dp.roundToPx() }
 
@@ -79,7 +79,7 @@ fun DynamicValueColumnTable(
                     Text(
                         text = "#",
                         style = MaterialTheme.typography.labelSmall,
-                        modifier = Modifier.width(TableIndexColumnWidth),
+                        modifier = Modifier.width(deviceInfoTableIndexColumnWidth),
                         textAlign = TextAlign.Center
                     )
                     Text(
@@ -126,7 +126,7 @@ fun DynamicValueColumnTable(
                             Text(
                                 text = rowIndexLabel,
                                 style = MaterialTheme.typography.bodySmall,
-                                modifier = Modifier.width(TableIndexColumnWidth),
+                                modifier = Modifier.width(deviceInfoTableIndexColumnWidth),
                                 textAlign = TextAlign.Center
                             )
 

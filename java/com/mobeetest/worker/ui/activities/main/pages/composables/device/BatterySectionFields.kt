@@ -5,7 +5,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.mobeetest.worker.R
 import com.mobeetest.worker.data.model.device.BatteryInfo
-import java.util.Locale
 
 @Composable
 fun BatterySectionFields(
@@ -113,27 +112,12 @@ fun BatterySectionFields(
 }
 
 // Helper function to select temperature icon based on temperature value
+// Uses temperatureBucket() and TemperatureBucket from WeatherModels.kt
 private fun iconForTemperature(tempC: Double?): Int {
     return when (temperatureBucket(tempC)) {
         TemperatureBucket.FREEZING -> R.drawable.weather_temp_freezing
         TemperatureBucket.COLD -> R.drawable.weather_temp_cold
         TemperatureBucket.MILD -> R.drawable.weather_temp_mild
         TemperatureBucket.HOT -> R.drawable.weather_temp_hot
-    }
-}
-
-// Temperature classification enum
-private enum class TemperatureBucket {
-    FREEZING, COLD, MILD, HOT
-}
-
-// Classify temperature into buckets
-private fun temperatureBucket(tempC: Double?): TemperatureBucket {
-    return when {
-        tempC == null -> TemperatureBucket.MILD
-        tempC < 0.0 -> TemperatureBucket.FREEZING
-        tempC < 15.0 -> TemperatureBucket.COLD
-        tempC < 25.0 -> TemperatureBucket.MILD
-        else -> TemperatureBucket.HOT
     }
 }

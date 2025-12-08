@@ -62,45 +62,70 @@ fun DeviceInfoCoordinatesRow(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 8.dp, vertical = 12.dp),
+                .padding(start = 8.dp, end = 12.dp, top = 8.dp, bottom = 8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
+            // Index
+            Text(
+                text = "$index.",
+                style = MaterialTheme.typography.labelMedium,
+                modifier = Modifier.width(deviceInfoFieldIndexColumnWidth),
+                textAlign = androidx.compose.ui.text.style.TextAlign.End
+            )
+
             // Icon
             Icon(
                 painter = painterResource(id = iconRes),
-                contentDescription = label,
-                modifier = Modifier.size(deviceInfoIconSize26),
+                contentDescription = null,
+                modifier = Modifier
+                    .size(29.dp)
+                    .padding(start = 8.dp, end = 4.dp),
                 tint = Color.Unspecified
             )
 
-            Spacer(modifier = Modifier.width(deviceInfoSpacing12))
+            // Label and coordinates inline
+            Text(
+                text = androidx.compose.ui.text.buildAnnotatedString {
+                    append(label)
+                    append(": ")
+                    withStyle(
+                        androidx.compose.ui.text.SpanStyle(
+                            fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.primary
+                        )
+                    ) {
+                        append(coordinatesValue)
+                    }
+                },
+                style = MaterialTheme.typography.bodyMedium,
+                maxLines = 2,
+                overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis
+            )
 
-            // Coordinates text with link if available
-            Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = label,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurface
+            Spacer(modifier = Modifier.weight(1f))
+
+            // Location icon (clickable) in 80dp box
+            Box(
+                modifier = Modifier
+                    .size(80.dp)
+                    .padding(horizontal = 4.dp, vertical = 8.dp)
+                    .clickable(enabled = googleMapsUrl != null) {
+                        googleMapsUrl?.let { uriHandler.openUri(it) }
+                    },
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    painter = painterResource(id = R.drawable.location),
+                    contentDescription = "Open in Google Maps",
+                    modifier = Modifier.size(26.dp),
+                    tint = if (googleMapsUrl != null) 
+                        MaterialTheme.colorScheme.primary 
+                    else 
+                        MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.4f)
                 )
-                
-                if (googleMapsUrl != null) {
-                    Text(
-                        text = coordinatesValue,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.primary,
-                        textDecoration = TextDecoration.Underline,
-                        modifier = Modifier.clickable {
-                            uriHandler.openUri(googleMapsUrl)
-                        }
-                    )
-                } else {
-                    Text(
-                        text = coordinatesValue,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                }
             }
+
+            Spacer(modifier = Modifier.width(8.dp))
 
             // Info icon
             if (infoDescription != null) {

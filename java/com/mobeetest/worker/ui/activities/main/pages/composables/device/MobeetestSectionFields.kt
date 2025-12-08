@@ -28,7 +28,6 @@ fun MobeetestSectionFields(mobeetest: MobeetestInfo, iconRes: Int) {
                     iconRes = iconRes,
                     label = row.label,
                     millis = millis,
-                    valueOverride = row.value,
                     infoDescription = row.infoDescription,
                     showBottomDivider = (index < rows.lastIndex)
                 )
@@ -40,7 +39,6 @@ fun MobeetestSectionFields(mobeetest: MobeetestInfo, iconRes: Int) {
                     iconRes = iconRes,
                     label = row.label,
                     millis = millis,
-                    valueOverride = row.value,
                     infoDescription = row.infoDescription,
                     showBottomDivider = (index < rows.lastIndex)
                 )

@@ -25,9 +25,9 @@ import com.mobeetest.worker.data.model.device.StorageInfo
 
 @Composable
 fun DynamicValueColumnTable(
-    @Suppress("UNUSED_PARAMETER") index: Int,
+    index: Int,
     rows: List<Triple<String, String, Float?>>,
-    @Suppress("UNUSED_PARAMETER") storage: StorageInfo,
+    storage: StorageInfo,
     headerBg: Color,
     rowEven: Color,
     rowOdd: Color,
@@ -104,7 +104,7 @@ fun DynamicValueColumnTable(
                         Spacer(modifier = Modifier.height(deviceInfoSpacing4))
                         PercentageDonut(
                             percentage = percentage,
-                            modifier = Modifier.size(deviceInfoIconSize24),
+                            size = deviceInfoIconSize24,
                             strokeWidth = 3.dp
                         )
                     }

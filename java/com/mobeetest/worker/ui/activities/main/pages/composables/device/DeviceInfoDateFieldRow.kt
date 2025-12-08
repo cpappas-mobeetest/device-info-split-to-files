@@ -25,7 +25,6 @@ fun DeviceInfoDateFieldRow(
     iconRes: Int,
     label: String,
     millis: Long,
-    valueOverride: String? = null,
     infoDescription: String? = null,
     showBottomDivider: Boolean = true
 ) {
@@ -35,7 +34,7 @@ fun DeviceInfoDateFieldRow(
     var showInfo by remember { mutableStateOf(false) }
     var showCopied by remember { mutableStateOf(false) }
 
-    val formattedDate = valueOverride ?: formatDate(millis)
+    val formattedDate = formatDate(millis)
 
     Row(
         modifier = Modifier
@@ -79,7 +78,7 @@ fun DeviceInfoDateFieldRow(
                     color = MaterialTheme.colorScheme.onSurface
                 )
 
-                MiniMonthCalendar(millis = millis)
+                DateHeaderRow(millis = millis, showLabel = false)
             }
         }
 
@@ -150,7 +149,7 @@ fun DeviceInfoDateFieldRow(
                         .fillMaxWidth()
                         .background(
                             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.9f),
-                            shape = androidx.compose.foundation.shape.RoundedCornerShape(deviceInfoCornerRadius8)
+                            shape = deviceInfoCornerRadius8
                         )
                         .padding(horizontal = deviceInfoSpacing10, vertical = deviceInfoSpacing6)
                 ) {

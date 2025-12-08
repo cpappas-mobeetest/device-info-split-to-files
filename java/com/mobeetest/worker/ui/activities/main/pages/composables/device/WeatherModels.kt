@@ -116,29 +116,3 @@ internal fun windDirToDegrees(dir: String?): Float? {
         else -> null
     }
 }
-
-/**
- * Convert WeatherInfo to WeatherParsedInfo for easier access
- */
-internal fun parseWeatherParsedInfo(weather: com.mobeetest.worker.ui.activities.main.pages.composables.device.WeatherInfo?): WeatherParsedInfo? {
-    if (weather == null) return null
-    
-    // Note: isDay field would need to be added to WeatherInfo if available in JSON
-    val isDay: Boolean? = null
-    
-    return WeatherParsedInfo(
-        city = weather.location?.name,
-        region = weather.location?.region,
-        country = weather.location?.country,
-        localTime = weather.location?.localtime,
-        temperatureC = weather.current?.tempC,
-        conditionText = weather.current?.condition?.text,
-        isDay = isDay,
-        feelsLikeC = weather.current?.feelslikeC,
-        windKph = weather.current?.windKph,
-        windDir = weather.current?.windDir,
-        humidity = weather.current?.humidity,
-        uvIndex = weather.current?.uv,
-        visibilityKm = weather.current?.visKm
-    )
-}

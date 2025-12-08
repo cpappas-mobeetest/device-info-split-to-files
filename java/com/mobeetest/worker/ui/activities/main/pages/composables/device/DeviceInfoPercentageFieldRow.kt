@@ -96,12 +96,13 @@ fun DeviceInfoPercentageFieldRow(
                 overflow = TextOverflow.Ellipsis
             )
 
-            Spacer(modifier = Modifier.width(8.dp))
+            Spacer(modifier = Modifier.weight(1f))
 
             Box(
                 modifier = Modifier
-                    .size(80.dp)
-                    .padding(horizontal = 4.dp, vertical = 8.dp),
+                    .size(96.dp)
+                    .padding(horizontal = 4.dp, vertical = 10.dp)
+                    .aspectRatio(1f, matchHeightConstraintsFirst = true),
                 contentAlignment = Alignment.Center
             ) {
                 PercentageDonut(
@@ -114,39 +115,34 @@ fun DeviceInfoPercentageFieldRow(
                 )
             }
 
-            Spacer(modifier = Modifier.width(8.dp))
+            Spacer(modifier = Modifier.weight(1f))
 
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(0.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                    if (infoDescription != null) {
-                    IconButton(
-                        onClick = { showInfo = !showInfo },
-                        modifier = Modifier.size(24.dp).padding(end = 2.dp)
-                    ) {
-                        Icon(
-                            painter = painterResource(id = R.drawable.information),
-                            contentDescription = "Info $label",
-                            tint = Color.Unspecified
-                        )
-                    }
-                }
-
+            if (infoDescription != null) {
                 IconButton(
-                    onClick = {
-                        val copyText = "$index. $label: $valueText"
-                        clipboardManager.setText(AnnotatedString(copyText))
-                        showCopied = true
-                    },
+                    onClick = { showInfo = !showInfo },
                     modifier = Modifier.size(24.dp).padding(end = 2.dp)
                 ) {
                     Icon(
-                        painter = painterResource(R.drawable.copy),
-                        contentDescription = "Copy $label",
+                        painter = painterResource(id = R.drawable.information),
+                        contentDescription = "Info $label",
                         tint = Color.Unspecified
                     )
                 }
+            }
+
+            IconButton(
+                onClick = {
+                    val copyText = "$index. $label: $valueText"
+                    clipboardManager.setText(AnnotatedString(copyText))
+                    showCopied = true
+                },
+                modifier = Modifier.size(24.dp).padding(end = 2.dp)
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.copy),
+                    contentDescription = "Copy $label",
+                    tint = Color.Unspecified
+                )
             }
         }
 

@@ -93,8 +93,9 @@ fun WeatherAlignedHumidityRow(
 
                     PercentageDonut(
                         percentage = percentage,
-                        modifier = Modifier.width(visualWidth),
-                        strokeWidth = deviceInfoDonutStrokeWidth
+                        size = deviceInfoDonutSize,
+                        strokeWidth = deviceInfoDonutStrokeWidth,
+                        modifier = Modifier.width(visualWidth)
                     )
                 }
             }

@@ -121,6 +121,8 @@ fun DeviceInfoScreen(
                     RightSideIcons(
                         updateState = if (updateInProgress) "InProgress" else "Idle",
                         onRefreshClick = { viewModel.loadDeviceInfo() },
+                        onShareClick = {  },
+                        sectionId = "all",
                         modifier = Modifier
                     )
                 }

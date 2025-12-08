@@ -54,24 +54,3 @@ internal fun formatWeatherInfo(raw: String): Map<String, String> {
         mapOf("Weather info" to "Invalid JSON: ${e.localizedMessage}")
     }
 }
-
-// Overloaded function for dual-unit weather values (metric + imperial)
-internal fun formatWeatherInfo(
-    metricValue: Double?,
-    imperialValue: Double?,
-    metricUnit: String,
-    imperialUnit: String
-): String {
-    return if (metricValue != null && imperialValue != null) {
-        String.format(
-            Locale.US,
-            "%.1f %s / %.1f %s",
-            metricValue,
-            metricUnit,
-            imperialValue,
-            imperialUnit
-        )
-    } else {
-        "N/A"
-    }
-}

@@ -25,7 +25,6 @@ fun DeviceInfoDateTimeFieldRow(
     iconRes: Int,
     label: String,
     millis: Long,
-    valueOverride: String? = null,
     infoDescription: String? = null,
     showBottomDivider: Boolean = true
 ) {
@@ -35,7 +34,7 @@ fun DeviceInfoDateTimeFieldRow(
     var showInfo by remember { mutableStateOf(false) }
     var showCopied by remember { mutableStateOf(false) }
 
-    val formattedDateTime = valueOverride ?: formatDateTime(millis)
+    val formattedDateTime = formatDateTime(millis)
 
     Row(
         modifier = Modifier
@@ -150,7 +149,7 @@ fun DeviceInfoDateTimeFieldRow(
                         .fillMaxWidth()
                         .background(
                             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.9f),
-                            shape = androidx.compose.foundation.shape.RoundedCornerShape(deviceInfoCornerRadius8)
+                            shape = deviceInfoCornerRadius8
                         )
                         .padding(horizontal = deviceInfoSpacing10, vertical = deviceInfoSpacing6)
                 ) {

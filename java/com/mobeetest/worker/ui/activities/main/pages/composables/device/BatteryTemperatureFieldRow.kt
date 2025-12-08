@@ -20,6 +20,7 @@ import com.mobeetest.worker.ui.theme.*
 import kotlinx.coroutines.delay
 import java.util.Locale
 
+@Suppress("unused")
 @Composable
 fun BatteryTemperatureFieldRow(
     index: Int,

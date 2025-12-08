@@ -15,6 +15,7 @@ internal fun formatDateTime(millis: Long): String {
 }
 
 
+@Suppress("unused")
 internal fun formatDateTimeNoSeconds(millis: Long): String {
     if (millis <= 0L) return "Unknown"
     return SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()).format(Date(millis))

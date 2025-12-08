@@ -51,6 +51,7 @@ data class ConditionInfo(
 /**
  * Parse weather JSON string into WeatherInfo object
  */
+@Suppress("unused")
 internal fun parseWeatherInfo(jsonString: String?): WeatherInfo? {
     if (jsonString.isNullOrBlank()) return null
 

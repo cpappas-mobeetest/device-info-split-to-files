@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import java.util.Locale
 
+@Suppress("unused")
 @Composable
 fun WeatherAlignedFieldsGroup(
     startIndex: Int,

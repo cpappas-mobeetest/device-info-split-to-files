@@ -2,6 +2,7 @@ package com.mobeetest.worker.ui.activities.main.pages.composables.device
 
 import java.util.Locale
 
+@Suppress("unused")
 internal data class WeatherParsedInfo(
     val city: String?,
     val region: String?,
@@ -44,6 +45,7 @@ internal enum class UvBucket {
     EXTREME
 }
 
+@Suppress("unused")
 internal fun categorizeWeatherCondition(
     text: String?,
     isDay: Boolean?
@@ -73,6 +75,7 @@ internal fun categorizeWeatherCondition(
     }
 }
 
+@Suppress("unused")
 internal fun temperatureBucket(tempC: Double?): TemperatureBucket {
     val t = tempC ?: return TemperatureBucket.MILD
     return when {

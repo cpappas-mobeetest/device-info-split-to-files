@@ -149,7 +149,7 @@ fun DeviceInfoDateTimeFieldRow(
                         .fillMaxWidth()
                         .background(
                             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.9f),
-                            shape = deviceInfoCornerRadius8
+                            shape = androidx.compose.foundation.shape.RoundedCornerShape(deviceInfoCornerRadius8)
                         )
                         .padding(horizontal = deviceInfoSpacing10, vertical = deviceInfoSpacing6)
                 ) {
@@ -170,7 +170,7 @@ fun DeviceInfoDateTimeFieldRow(
         }
     }
 
-    LaunchedEffect(showCopied) {
+    LaunchedEffect(key1 = showCopied) {
         if (showCopied) {
             delay(1_500)
             showCopied = false

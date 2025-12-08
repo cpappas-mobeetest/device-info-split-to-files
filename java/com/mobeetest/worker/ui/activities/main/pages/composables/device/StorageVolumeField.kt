@@ -46,9 +46,10 @@ fun StorageVolumeField(
     } else 0f
 
     val rows = listOf(
-        Triple(stringResource(R.string.device_info_label_storage_path), storage.path, null),
-        Triple(stringResource(R.string.device_info_label_storage_total), formatBytes(storage.totalBytes), null),
-        Triple(stringResource(R.string.device_info_label_storage_used), formatBytes(storage.usedBytes), usagePercent)
+        "Path" to storage.path,
+        "Total" to formatBytes(storage.totalBytes),
+        "Used" to formatBytes(storage.usedBytes),
+        "Used space" to "${storage.percentUsed}%"
     )
 
     Column(

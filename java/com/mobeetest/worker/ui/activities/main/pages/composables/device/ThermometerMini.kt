@@ -109,7 +109,8 @@ fun ThermometerMini(
         val currentTextX = tubeLeft - w * 0.08f
         val currentFm = currentPaint.fontMetrics
         val currentBaselineY = (mercuryTop - (currentFm.ascent + currentFm.descent) / 2f)
-            .coerceIn(currentPaint.textSize, h - currentPaint.textSize)
+            .coerceAtLeast(currentPaint.textSize)
+            .coerceAtMost(h - currentPaint.textSize)
 
         drawContext.canvas.nativeCanvas.drawText(
             labelText,
@@ -139,7 +140,8 @@ fun ThermometerMini(
                 val scaleX = tubeRight + w * 0.35f
                 val fm = scalePaint.fontMetrics
                 val baselineY = (scaleY - (fm.ascent + fm.descent) / 2f)
-                    .coerceIn(scalePaint.textSize, h - scalePaint.textSize)
+                    .coerceAtLeast(scalePaint.textSize)
+                    .coerceAtMost(h - scalePaint.textSize)
 
                 drawContext.canvas.nativeCanvas.drawText(
                     scaleText,

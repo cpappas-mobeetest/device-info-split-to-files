@@ -78,17 +78,6 @@ fun WeatherSectionFields(weather: WeatherInfo, iconRes: Int) {
         )
     }
 
-    // Humidity row with visualization
-    WeatherAlignedHumidityRow(
-        index = index++,
-        iconRes = iconRes,
-        label = stringResource(R.string.device_info_label_weather_humidity),
-        percentage = (weather.current?.humidity ?: 0).toFloat(),
-        textWidth = 120.dp,
-        visualWidth = 80.dp,
-        infoDescription = "Current humidity percentage with donut visualization."
-    )
-
     // Wind row with compass visualization
     WeatherAlignedWindRow(
         index = index++,
@@ -98,7 +87,18 @@ fun WeatherSectionFields(weather: WeatherInfo, iconRes: Int) {
         windDir = weather.current?.windDir,
         textWidth = 120.dp,
         visualWidth = 80.dp,
-        infoDescription = "Current wind speed and direction with compass visualization."
+        infoDescription = "Current wind speed in kph and direction with compass visualization."
+    )
+
+    // Humidity row with donut visualization
+    WeatherAlignedHumidityRow(
+        index = index++,
+        iconRes = iconRes,
+        label = stringResource(R.string.device_info_label_weather_humidity),
+        percentage = (weather.current?.humidity ?: 0).toFloat(),
+        textWidth = 120.dp,
+        visualWidth = 80.dp,
+        infoDescription = "Current humidity percentage with donut visualization."
     )
 
     DeviceInfoValueRow(
@@ -117,12 +117,15 @@ fun WeatherSectionFields(weather: WeatherInfo, iconRes: Int) {
         infoDescription = "Precipitation amount in millimeters and inches."
     )
 
-    DeviceInfoValueRow(
+    // Cloud cover with donut visualization
+    WeatherAlignedHumidityRow(
         index = index++,
         iconRes = iconRes,
         label = stringResource(R.string.device_info_label_weather_cloud_cover),
-        value = "${weather.current?.cloud ?: "?"}%",
-        infoDescription = "Cloud cover as a percentage of sky coverage."
+        percentage = (weather.current?.cloud ?: 0).toFloat(),
+        textWidth = 120.dp,
+        visualWidth = 80.dp,
+        infoDescription = "Cloud cover as a percentage of sky coverage with donut visualization."
     )
 
     DeviceInfoValueRow(
@@ -133,12 +136,16 @@ fun WeatherSectionFields(weather: WeatherInfo, iconRes: Int) {
         infoDescription = "UV index indicating strength of ultraviolet radiation."
     )
 
-    DeviceInfoValueRow(
+    // Visibility with bar visualization
+    WeatherAlignedVisibilityRow(
         index = index++,
         iconRes = iconRes,
         label = stringResource(R.string.device_info_label_weather_visibility),
-        value = formatWeatherInfo(weather.current?.visKm, weather.current?.visMiles, "km", "mi"),
-        infoDescription = "Visibility distance in kilometers and miles.",
+        visibilityKm = weather.current?.visKm ?: 0.0,
+        visMiles = weather.current?.visMiles ?: 0.0,
+        textWidth = 120.dp,
+        visualWidth = 80.dp,
+        infoDescription = "Visibility distance in kilometers and miles with bar visualization.",
         showBottomDivider = false
     )
 }

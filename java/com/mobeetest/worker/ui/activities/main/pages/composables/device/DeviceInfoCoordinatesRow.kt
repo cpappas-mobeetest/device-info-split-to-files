@@ -104,25 +104,30 @@ fun DeviceInfoCoordinatesRow(
 
             Spacer(modifier = Modifier.weight(1f))
 
-            // Location icon (clickable) in 80dp box
+            // Location icon (clickable) in 80dp box with circular ripple
             Box(
                 modifier = Modifier
                     .size(80.dp)
-                    .padding(horizontal = 4.dp, vertical = 8.dp)
-                    .clickable(enabled = googleMapsUrl != null) {
-                        googleMapsUrl?.let { uriHandler.openUri(it) }
-                    },
+                    .padding(horizontal = 4.dp, vertical = 8.dp),
                 contentAlignment = Alignment.Center
             ) {
-                Icon(
-                    painter = painterResource(id = R.drawable.location),
-                    contentDescription = "Open in Google Maps",
-                    modifier = Modifier.size(26.dp),
-                    tint = if (googleMapsUrl != null) 
-                        MaterialTheme.colorScheme.primary 
-                    else 
-                        MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.4f)
-                )
+                androidx.compose.material3.IconButton(
+                    onClick = {
+                        googleMapsUrl?.let { uriHandler.openUri(it) }
+                    },
+                    enabled = googleMapsUrl != null,
+                    modifier = Modifier.size(48.dp)
+                ) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.location),
+                        contentDescription = "Open in Google Maps",
+                        modifier = Modifier.size(26.dp),
+                        tint = if (googleMapsUrl != null) 
+                            MaterialTheme.colorScheme.primary 
+                        else 
+                            MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.4f)
+                    )
+                }
             }
 
             Spacer(modifier = Modifier.width(8.dp))

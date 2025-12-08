@@ -117,6 +117,7 @@ val deviceInfoCornerRadius10 = 10.dp
 
 // Border thickness
 val deviceInfoBorderThickness = 1.dp
+val deviceInfoBorderThicknessHalf = 0.5.dp
 val deviceInfoDividerThickness = 0.5.dp
 val deviceInfoTableDividerThickness = 0.25.dp
 

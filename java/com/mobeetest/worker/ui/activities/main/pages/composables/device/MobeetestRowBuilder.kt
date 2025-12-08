@@ -39,16 +39,16 @@ internal fun buildMobeetestRows(info: MobeetestInfo?): List<MobeetestRowSpec> {
         label = "Installed on",
         value = formatDateTime(info.dateInstalled),
         infoDescription = "Timestamp when the app was first installed on the device.",
-        type = MobeetestRowType.DATETIME,
-        millis = info.dateInstalled
+        rowType = MobeetestRowType.DATE_TIME,
+        dateMillis = info.dateInstalled
     )
 
     rows += MobeetestRowSpec(
         label = "Last updated on",
         value = formatDateTime(info.dateLastUpdated),
         infoDescription = "Timestamp when the app was last updated on the device.",
-        type = MobeetestRowType.DATETIME,
-        millis = info.dateLastUpdated
+        rowType = MobeetestRowType.DATE_TIME,
+        dateMillis = info.dateLastUpdated
     )
 
     info.totalUpdates.let { updates ->
@@ -73,8 +73,8 @@ internal fun buildMobeetestRows(info: MobeetestInfo?): List<MobeetestRowSpec> {
         label = "Last run at",
         value = formatDateTime(lastRun),
         infoDescription = "Timestamp of the most recent application run (based on local tracking).",
-        type = MobeetestRowType.DATETIME,
-        millis = lastRun
+        rowType = MobeetestRowType.DATE_TIME,
+        dateMillis = lastRun
     )
 
 

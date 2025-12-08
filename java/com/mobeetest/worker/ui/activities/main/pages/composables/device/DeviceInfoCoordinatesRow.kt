@@ -106,7 +106,7 @@ fun DeviceInfoCoordinatesRow(
             if (infoDescription != null) {
                 IconButton(
                     onClick = { showInfoTooltip = !showInfoTooltip },
-                    modifier = Modifier.size(deviceInfoIconSize22)
+                    modifier = Modifier.size(24.dp).padding(end = 2.dp)
                 ) {
                     Icon(
                         painter = painterResource(id = R.drawable.information),
@@ -122,7 +122,7 @@ fun DeviceInfoCoordinatesRow(
                     clipboardManager.setText(AnnotatedString(coordinatesValue))
                     showCopied = true
                 },
-                modifier = Modifier.size(deviceInfoIconSize22)
+                modifier = Modifier.size(24.dp).padding(end = 2.dp)
             ) {
                 Icon(
                     painter = painterResource(R.drawable.copy),

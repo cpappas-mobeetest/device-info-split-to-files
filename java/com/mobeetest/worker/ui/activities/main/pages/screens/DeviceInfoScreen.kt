@@ -119,10 +119,8 @@ fun DeviceInfoScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     RightSideIcons(
-                        updateState = if (updateInProgress) "InProgress" else "Idle",
+                        updateInProgress = updateInProgress,
                         onRefreshClick = { viewModel.loadDeviceInfo() },
-                        onShareClick = {  },
-                        sectionId = "all",
                         modifier = Modifier
                     )
                 }

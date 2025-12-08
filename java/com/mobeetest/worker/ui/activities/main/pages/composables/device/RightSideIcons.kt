@@ -1,31 +1,34 @@
 package com.mobeetest.worker.ui.activities.main.pages.composables.device
 
-import com.mobeetest.worker.ui.theme.*
-
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Icon
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.mobeetest.worker.R
 
 @Composable
 fun RightSideIcons(
-    updateState: String,
+    updateInProgress: Boolean,
     onRefreshClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    var playUpdateGif by remember { mutableStateOf(false) }
-
-    LaunchedEffect(updateState) {
-        playUpdateGif = (updateState == "InProgress")
-    }
+    val iconSize = 26.dp
+    
+    // ✅ Κοινό/αυξημένο touch για ΟΛΑ (και άρα ίδιο ripple)
+    val touchSize = iconSize + 8.dp
+    
+    // ✅ Update οπτικά μεγαλύτερο
+    val updateVisualSize = iconSize + 8.dp
 
     val icons = remember {
         listOf(
@@ -58,33 +61,64 @@ fun RightSideIcons(
     ) {
         items(
             items = icons,
-            key = { it }
+            key = { it } // ✅ σταθερό state ανά icon
         ) { icon ->
-            // Update/Refresh icon with animated GIF support
-            if (icon == R.drawable.update && playUpdateGif) {
-                PlayGifAtLeastWhileInProgress(
-                    resId = R.drawable.update_gif,
-                    minPlays = 1,
-                    inProgress = (updateState == "InProgress"),
-                    modifier = Modifier.size(deviceInfoIconSize24),
-                    contentDescription = "Refresh device info",
-                    onFinished = { playUpdateGif = false }
-                )
-            } else {
-                ActionIconSlot(
-                    touchSize = deviceInfoIconSize24,
-                    onClick = {
-                        if (icon == R.drawable.update) {
-                            playUpdateGif = true
-                            onRefreshClick()
+            ActionIconSlot(
+                touchSize = touchSize,
+                onClick = {
+                    when (icon) {
+                        R.drawable.update -> onRefreshClick()
+                        R.drawable.ftp -> { /*...*/ }
+                        R.drawable.json -> { /*...*/ }
+                        R.drawable.ms_word -> { /*...*/ }
+                        R.drawable.ms_excel -> { /*...*/ }
+                        R.drawable.csv -> { /*...*/ }
+                        R.drawable.pdf -> { /*...*/ }
+                        R.drawable.png -> { /*...*/ }
+                        R.drawable.zip -> { /*...*/ }
+                        R.drawable.copy -> { /*...*/ }
+                        R.drawable.minimize -> { /*...*/ }
+                    }
+                }
+            ) {
+                when (icon) {
+                    R.drawable.update -> {
+                        var playUpdateGif by rememberSaveable { mutableStateOf(false) }
+
+                        LaunchedEffect(updateInProgress) {
+                            if (updateInProgress) playUpdateGif = true
+                        }
+
+                        if (!playUpdateGif) {
+                            Icon(
+                                painter = painterResource(id = icon),
+                                contentDescription = null,
+                                tint = Color.Unspecified,
+                                modifier = Modifier.size(updateVisualSize)
+                            )
+                        } else {
+                            PlayGifAtLeastWhileInProgress(
+                                resId = R.drawable.update_gif,
+                                minPlays = 2,
+                                inProgress = updateInProgress,
+                                modifier = Modifier.size(updateVisualSize),
+                                contentDescription = "Refresh",
+                                onFinished = {
+                                    @Suppress("ASSIGNED_VALUE_IS_NEVER_READ")
+                                    playUpdateGif = false
+                                }
+                            )
                         }
                     }
-                ) {
-                    androidx.compose.foundation.Image(
-                        painter = painterResource(id = icon),
-                        contentDescription = null,
-                        modifier = Modifier.size(deviceInfoIconSize24)
-                    )
+
+                    else -> {
+                        Icon(
+                            painter = painterResource(id = icon),
+                            contentDescription = null,
+                            tint = Color.Unspecified,
+                            modifier = Modifier.size(iconSize)
+                        )
+                    }
                 }
             }
         }

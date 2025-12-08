@@ -54,3 +54,11 @@ internal fun formatWeatherInfo(raw: String): Map<String, String> {
         mapOf("Weather info" to "Invalid JSON: ${e.localizedMessage}")
     }
 }
+
+internal fun formatWeatherInfo(metric: Double?, imperial: Double?, metricUnit: String, imperialUnit: String): String {
+    return if (metric != null && imperial != null) {
+        String.format(Locale.US, "%.1f %s (%.1f %s)", metric, metricUnit, imperial, imperialUnit)
+    } else {
+        "?"
+    }
+}

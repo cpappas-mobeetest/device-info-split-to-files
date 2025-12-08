@@ -86,6 +86,7 @@ internal fun temperatureBucket(tempC: Double?): TemperatureBucket {
     }
 }
 
+@Suppress("unused")
 internal fun uvBucket(uv: Double?): UvBucket {
     val v = uv ?: return UvBucket.LOW
     return when {

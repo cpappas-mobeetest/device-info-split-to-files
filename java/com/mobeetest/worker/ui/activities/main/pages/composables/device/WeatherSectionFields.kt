@@ -4,6 +4,7 @@ import com.mobeetest.worker.ui.theme.*
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import com.mobeetest.worker.R
 import com.mobeetest.worker.models.WeatherInfo
 
@@ -48,27 +49,34 @@ fun WeatherSectionFields(weather: WeatherInfo, iconRes: Int) {
     WeatherAlignedTemperatureRow(
         index = index++,
         iconRes = iconRes,
-        tempC = weather.current?.tempC,
-        tempF = weather.current?.tempF,
-        feelsLikeC = weather.current?.feelslikeC,
-        feelsLikeF = weather.current?.feelslikeF
+        label = stringResource(R.string.device_info_label_weather_temperature),
+        temperatureC = weather.current?.tempC ?: 0.0,
+        textWidth = 120.dp,
+        visualWidth = 80.dp,
+        infoDescription = "Current temperature in degrees Celsius with thermometer visualization."
     )
 
     // Humidity row with visualization
     WeatherAlignedHumidityRow(
         index = index++,
         iconRes = iconRes,
-        humidity = weather.current?.humidity
+        label = stringResource(R.string.device_info_label_weather_humidity),
+        percentage = (weather.current?.humidity ?: 0).toFloat(),
+        textWidth = 120.dp,
+        visualWidth = 80.dp,
+        infoDescription = "Current humidity percentage with donut visualization."
     )
 
     // Wind row with compass visualization
     WeatherAlignedWindRow(
         index = index++,
         iconRes = iconRes,
-        windKph = weather.current?.windKph,
-        windMph = weather.current?.windMph,
+        label = stringResource(R.string.device_info_label_weather_wind),
+        windKph = weather.current?.windKph ?: 0.0,
         windDir = weather.current?.windDir,
-        windDegree = weather.current?.windDegree
+        textWidth = 120.dp,
+        visualWidth = 80.dp,
+        infoDescription = "Current wind speed and direction with compass visualization."
     )
 
     DeviceInfoValueRow(

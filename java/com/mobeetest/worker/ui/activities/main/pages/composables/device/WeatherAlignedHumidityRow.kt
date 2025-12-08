@@ -29,7 +29,7 @@ fun WeatherAlignedHumidityRow(
     label: String,
     percentage: Float,
     textWidth: Dp,
-    visualWidth: Dp,
+    @Suppress("UNUSED_PARAMETER") visualWidth: Dp,
     infoDescription: String?
 ) {
     val context = LocalContext.current

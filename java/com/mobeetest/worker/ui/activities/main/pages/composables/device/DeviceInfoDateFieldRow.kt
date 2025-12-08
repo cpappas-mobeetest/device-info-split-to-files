@@ -170,7 +170,7 @@ fun DeviceInfoDateFieldRow(
         }
     }
 
-    LaunchedEffect(key1 = showCopied) {
+    LaunchedEffect(showCopied) {
         if (showCopied) {
             delay(1_500)
             showCopied = false

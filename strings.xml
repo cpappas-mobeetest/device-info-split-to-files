@@ -429,6 +429,8 @@
     <string name="device_info_label_weather_temperature">Temperature</string>
     <string name="device_info_label_feels_like">Feels like</string>
     <string name="device_info_label_wind">Wind</string>
+    <string name="device_info_label_weather_wind">Wind</string>
+    <string name="device_info_label_weather_humidity">Humidity</string>
     <string name="device_info_label_weather_pressure">Pressure</string>
     <string name="device_info_label_weather_precipitation">Precipitation</string>
     <string name="device_info_label_weather_cloud_cover">Cloud cover</string>

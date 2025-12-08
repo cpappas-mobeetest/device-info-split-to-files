@@ -75,7 +75,7 @@ fun BatterySectionFields(
             iconRes = iconForTemperature(temp.toDouble()),
             label = "Temperature",
             temperatureC = temp.toDouble(),
-            textWidth = 120.dp,
+            textWidth = 150.dp,
             visualWidth = 80.dp,
             infoDescription = "Current battery temperature in degrees Celsius."
         )

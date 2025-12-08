@@ -51,7 +51,7 @@ fun WeatherSectionFields(weather: WeatherInfo, iconRes: Int) {
         iconRes = iconRes,
         label = stringResource(R.string.device_info_label_weather_temperature),
         temperatureC = weather.current?.tempC ?: 0.0,
-        textWidth = 120.dp,
+        textWidth = 150.dp,
         visualWidth = 80.dp,
         infoDescription = "Current temperature in degrees Celsius with thermometer visualization."
     )

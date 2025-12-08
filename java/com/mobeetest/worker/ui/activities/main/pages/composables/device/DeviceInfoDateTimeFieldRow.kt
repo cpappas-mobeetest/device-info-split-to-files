@@ -25,118 +25,67 @@ fun DeviceInfoDateTimeFieldRow(
     iconRes: Int,
     label: String,
     millis: Long,
+    modifier: Modifier = Modifier,
+    valueOverride: String? = null,
     infoDescription: String? = null,
     showBottomDivider: Boolean = true
 ) {
+    val bgColor = deviceInfoFieldBackground(index)
+    val displayValue = valueOverride ?: formatDateTime(millis)
+
     val context = LocalContext.current
     val clipboardManager = LocalClipboardManager.current
 
     var showInfo by remember { mutableStateOf(false) }
     var showCopied by remember { mutableStateOf(false) }
 
-    val formattedDateTime = formatDateTime(millis)
-
-    Row(
-        modifier = Modifier
+    Column(
+        modifier = modifier
             .fillMaxWidth()
-            .background(deviceInfoFieldBackground(index))
-            .padding(horizontal = deviceInfoSpacing12, vertical = deviceInfoSpacing8),
-        verticalAlignment = Alignment.CenterVertically
+            .background(bgColor)
     ) {
-        Text(
-            text = "$index.",
-            style = deviceInfoFieldIndexTextStyle,
-            color = MaterialTheme.colorScheme.onSurface,
-            modifier = Modifier.width(deviceInfoFieldIndexWidth)
-        )
-
-        Icon(
-            painter = painterResource(id = iconRes),
-            contentDescription = null,
-            tint = Color.Unspecified,
-            modifier = Modifier
-                .size(deviceInfoIconSize24)
-                .padding(end = deviceInfoSpacing8)
-        )
-
-        Column(modifier = Modifier.weight(1f)) {
-            Text(
-                text = label,
-                style = deviceInfoFieldLabelTextStyle,
-                color = MaterialTheme.colorScheme.onSurface
-            )
-
-            Spacer(modifier = Modifier.height(deviceInfoSpacing4))
-
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(deviceInfoSpacing8),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = formattedDateTime,
-                    style = deviceInfoFieldValueTextStyle,
-                    color = MaterialTheme.colorScheme.onSurface
-                )
-
-                MiniAnalogClock(timeMillis = millis)
+        // Use common header
+        DateHeaderRow(
+            index = index,
+            iconRes = iconRes,
+            label = label,
+            displayValue = displayValue,
+            infoDescription = infoDescription,
+            onInfoClick = { showInfo = !showInfo },
+            onCopyClick = {
+                clipboardManager.setText(AnnotatedString("$index. $label: $displayValue"))
+                showCopied = true
             }
-        }
+        )
 
-        Spacer(modifier = Modifier.weight(1f))
-
+        // Calendar + Clock body
         Row(
-            horizontalArrangement = Arrangement.spacedBy(0.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            if (infoDescription != null) {
-                IconButton(
-                    onClick = { showInfo = !showInfo },
-                    modifier = Modifier
-                        .size(deviceInfoIconSize24)
-                        .padding(end = 2.dp)
-                ) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.information),
-                        contentDescription = context.getString(R.string.device_info_cd_info, label),
-                        tint = Color.Unspecified,
-                        modifier = Modifier.size(deviceInfoIconSize24)
-                    )
-                }
-            }
-
-            IconButton(
-                onClick = {
-                    clipboardManager.setText(AnnotatedString("$index. $label: $formattedDateTime"))
-                    showCopied = true
-                },
-                modifier = Modifier
-                    .size(deviceInfoIconSize24)
-                    .padding(start = 2.dp)
-            ) {
-                Icon(
-                    painter = painterResource(R.drawable.copy),
-                    contentDescription = context.getString(R.string.device_info_cd_copy, label),
-                    tint = Color.Unspecified
-                )
-            }
-        }
-    }
-
-    AnimatedVisibility(visible = showCopied) {
-        Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = deviceInfoSpacing8, end = deviceInfoSpacing12, bottom = 2.dp),
-            contentAlignment = Alignment.CenterEnd
+                .padding(start = 8.dp, end = 12.dp, top = 6.dp, bottom = 6.dp),
+            horizontalArrangement = Arrangement.spacedBy(10.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(
-                text = stringResource(R.string.device_info_copied_to_clipboard),
-                style = deviceInfoCopiedMessageTextStyle,
-                color = MaterialTheme.colorScheme.primary
+            MiniMonthCalendar(
+                millis = millis,
+                modifier = Modifier.weight(1f)
+            )
+            MiniAnalogClock(
+                millis = millis,
+                modifier = Modifier.weight(0.6f)
+            )
+        }
+
+        if (showBottomDivider) {
+            HorizontalDivider(
+                modifier = Modifier.fillMaxWidth(),
+                thickness = deviceInfoBorderThicknessHalf,
+                color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f)
             )
         }
     }
 
+    // Info tooltip separate from the Column to avoid layout issues
     if (infoDescription != null) {
         AnimatedVisibility(visible = showInfo) {
             Box(
@@ -170,18 +119,25 @@ fun DeviceInfoDateTimeFieldRow(
         }
     }
 
+    AnimatedVisibility(visible = showCopied) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = deviceInfoSpacing8, end = deviceInfoSpacing12, bottom = 2.dp),
+            contentAlignment = Alignment.CenterEnd
+        ) {
+            Text(
+                text = stringResource(R.string.device_info_copied_to_clipboard),
+                style = deviceInfoCopiedMessageTextStyle,
+                color = MaterialTheme.colorScheme.primary
+            )
+        }
+    }
+
     LaunchedEffect(showCopied) {
         if (showCopied) {
             delay(1_500)
             showCopied = false
         }
-    }
-
-    if (showBottomDivider) {
-        HorizontalDivider(
-            modifier = Modifier.fillMaxWidth(),
-            thickness = deviceInfoBorderThickness,
-            color = deviceInfoDivider
-        )
     }
 }

@@ -32,7 +32,9 @@ fun DateHeaderRow(
     label: String,
     displayValue: String,
     infoDescription: String?,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onInfoClick: (() -> Unit)? = null,
+    onCopyClick: (() -> Unit)? = null
 ) {
     val clipboardManager = LocalClipboardManager.current
     var showInfo by rememberSaveable("${label}_${index}_date_header_info") { mutableStateOf(false) }
@@ -93,7 +95,10 @@ fun DateHeaderRow(
 
             if (infoDescription != null) {
                 IconButton(
-                    onClick = { showInfo = !showInfo },
+                    onClick = {
+                        showInfo = !showInfo
+                        onInfoClick?.invoke()
+                    },
                     modifier = Modifier
                         .size(deviceInfoIconSize24)
                         .padding(end = deviceInfoSpacing2)
@@ -111,6 +116,7 @@ fun DateHeaderRow(
                     val copyText = "$index.  $label: $displayValue"
                     clipboardManager.setText(AnnotatedString(copyText))
                     showCopied = true
+                    onCopyClick?.invoke()
                 },
                 modifier = Modifier
                     .size(deviceInfoIconSize24)

@@ -20,20 +20,27 @@ fun WeatherSectionFields(weather: WeatherInfo, iconRes: Int) {
         infoDescription = "Location name and country from weather data provider."
     )
 
-    DeviceInfoValueRow(
+    // Coordinates with location icon and Google Maps link
+    DeviceInfoCoordinatesRow(
         index = index++,
-        iconRes = iconRes,
+        iconRes = R.drawable.location,
         label = stringResource(R.string.device_info_label_weather_coordinates),
-        value = "${weather.location?.lat ?: "?"}, ${weather.location?.lon ?: "?"}",
-        infoDescription = "Geographic coordinates (latitude, longitude) of the location."
+        latitude = weather.location?.lat,
+        longitude = weather.location?.lon,
+        infoDescription = "Geographic coordinates (latitude, longitude) with link to Google Maps."
     )
 
+    // Last updated with calendar and clock visualization
     DeviceInfoDateTimeFieldRow(
         index = index++,
         iconRes = iconRes,
         label = stringResource(R.string.device_info_label_weather_last_updated),
         millis = parseWeatherTime(weather.current?.lastUpdatedEpoch, weather.current?.lastUpdated)
             ?: System.currentTimeMillis(),
+        valueOverride = formatDateTimeNoSeconds(
+            parseWeatherTime(weather.current?.lastUpdatedEpoch, weather.current?.lastUpdated)
+                ?: System.currentTimeMillis()
+        ),
         infoDescription = "Timestamp when weather data was last updated by the provider."
     )
 
